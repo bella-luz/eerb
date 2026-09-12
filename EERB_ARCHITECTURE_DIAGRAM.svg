@@ -1,0 +1,168 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .header { font-size: 20px; font-weight: bold; fill: #1a1a1a; }
+      .layer-title { font-size: 16px; font-weight: bold; fill: #ffffff; }
+      .box-title { font-size: 14px; font-weight: bold; fill: #1a1a1a; }
+      .box-subtitle { font-size: 11px; fill: #666666; }
+      .arrow { stroke: #0066cc; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-label { font-size: 10px; fill: #0066cc; }
+      .layer-bg-ui { fill: #e8f4fd; }
+      .layer-bg-app { fill: #fff3e0; }
+      .layer-bg-agent { fill: #f3e5f5; }
+      .layer-bg-tool { fill: #e8f5e9; }
+      .layer-bg-data { fill: #fce4ec; }
+      .box { stroke: #333333; stroke-width: 1.5; rx: 6; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066cc" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" class="header">EERB System Architecture</text>
+  <text x="600" y="50" text-anchor="middle" font-size="12" fill="#666666">Multi-Agent AI Engineering Review Platform</text>
+
+  <!-- Layer 1: User Interface (Streamlit) -->
+  <rect x="50" y="80" width="1100" height="120" class="box layer-bg-ui"/>
+  <text x="60" y="105" class="layer-title" style="fill: #01579b;">🖥️ USER INTERFACE LAYER</text>
+
+  <rect x="80" y="120" width="220" height="70" class="box" fill="#ffffff"/>
+  <text x="190" y="135" text-anchor="middle" class="box-title">Home Page</text>
+  <text x="190" y="153" text-anchor="middle" class="box-subtitle">Project Overview</text>
+  <text x="190" y="168" text-anchor="middle" class="box-subtitle">Instructions</text>
+
+  <rect x="330" y="120" width="220" height="70" class="box" fill="#ffffff"/>
+  <text x="440" y="135" text-anchor="middle" class="box-title">Demo Project</text>
+  <text x="440" y="153" text-anchor="middle" class="box-subtitle">Pre-loaded 500kW+1MWh</text>
+  <text x="440" y="168" text-anchor="middle" class="box-subtitle">Runs instantly</text>
+
+  <rect x="580" y="120" width="220" height="70" class="box" fill="#ffffff"/>
+  <text x="690" y="135" text-anchor="middle" class="box-title">Upload Project</text>
+  <text x="690" y="153" text-anchor="middle" class="box-subtitle">CSV + Specs input</text>
+  <text x="690" y="168" text-anchor="middle" class="box-subtitle">Custom analysis</text>
+
+  <rect x="830" y="120" width="220" height="70" class="box" fill="#ffffff"/>
+  <text x="940" y="135" text-anchor="middle" class="box-title">Dashboard</text>
+  <text x="940" y="153" text-anchor="middle" class="box-subtitle">Charts, findings, report</text>
+  <text x="940" y="168" text-anchor="middle" class="box-subtitle">Download results</text>
+
+  <!-- Arrow to Application Layer -->
+  <path d="M 600 190 L 600 220" class="arrow"/>
+  <text x="620" y="210" class="arrow-label">User Input</text>
+
+  <!-- Layer 2: Application Layer -->
+  <rect x="50" y="220" width="1100" height="100" class="box layer-bg-app"/>
+  <text x="60" y="240" class="layer-title" style="fill: #e65100;">⚙️ APPLICATION LAYER</text>
+
+  <rect x="350" y="235" width="500" height="70" class="box" fill="#ffffff"/>
+  <text x="600" y="255" text-anchor="middle" class="box-title">Agent Orchestrator</text>
+  <text x="600" y="273" text-anchor="middle" class="box-subtitle">Coordinates 6 agents in sequence | Detects conflicts | Synthesizes results</text>
+
+  <!-- Arrow to Agent Layer -->
+  <path d="M 600 310 L 600 340" class="arrow"/>
+  <text x="620" y="330" class="arrow-label">Agent Requests</text>
+
+  <!-- Layer 3: Agent Layer -->
+  <rect x="50" y="340" width="1100" height="160" class="box layer-bg-agent"/>
+  <text x="60" y="360" class="layer-title" style="fill: #4a148c;">👥 AI AGENT LAYER (6 Specialized Agents)</text>
+
+  <rect x="70" y="375" width="150" height="110" class="box" fill="#ffffff"/>
+  <text x="145" y="395" text-anchor="middle" class="box-title">Lead Engineer</text>
+  <text x="145" y="413" text-anchor="middle" class="box-subtitle">Orchestrator</text>
+  <text x="145" y="428" text-anchor="middle" class="box-subtitle">Planner</text>
+  <text x="145" y="443" text-anchor="middle" class="box-subtitle">Synthesizer</text>
+
+  <rect x="245" y="375" width="150" height="110" class="box" fill="#ffffff"/>
+  <text x="320" y="395" text-anchor="middle" class="box-title">Load Analyst</text>
+  <text x="320" y="413" text-anchor="middle" class="box-subtitle">Peak demand</text>
+  <text x="320" y="428" text-anchor="middle" class="box-subtitle">Duration</text>
+  <text x="320" y="443" text-anchor="middle" class="box-subtitle">Profile</text>
+
+  <rect x="420" y="375" width="150" height="110" class="box" fill="#ffffff"/>
+  <text x="495" y="395" text-anchor="middle" class="box-title">PV Engineer</text>
+  <text x="495" y="413" text-anchor="middle" class="box-subtitle">Capacity</text>
+  <text x="495" y="428" text-anchor="middle" class="box-subtitle">Generation</text>
+  <text x="495" y="443" text-anchor="middle" class="box-subtitle">Coverage</text>
+
+  <rect x="595" y="375" width="150" height="110" class="box" fill="#ffffff"/>
+  <text x="670" y="395" text-anchor="middle" class="box-title">BESS Engineer</text>
+  <text x="670" y="413" text-anchor="middle" class="box-subtitle">Capacity</text>
+  <text x="670" y="428" text-anchor="middle" class="box-subtitle">Duration</text>
+  <text x="670" y="443" text-anchor="middle" class="box-subtitle">Peak-shaving</text>
+
+  <rect x="770" y="375" width="150" height="110" class="box" fill="#ffffff"/>
+  <text x="845" y="395" text-anchor="middle" class="box-title">Spec Engineer</text>
+  <text x="845" y="413" text-anchor="middle" class="box-subtitle">Document</text>
+  <text x="845" y="428" text-anchor="middle" class="box-subtitle">Review (RAG)</text>
+  <text x="845" y="443" text-anchor="middle" class="box-subtitle">Extraction</text>
+
+  <rect x="945" y="375" width="150" height="110" class="box" fill="#ffffff"/>
+  <text x="1020" y="395" text-anchor="middle" class="box-title">Critic</text>
+  <text x="1020" y="413" text-anchor="middle" class="box-subtitle">Challenges</text>
+  <text x="1020" y="428" text-anchor="middle" class="box-subtitle">Conflicts</text>
+  <text x="1020" y="443" text-anchor="middle" class="box-subtitle">Gaps</text>
+
+  <!-- Arrow to Tool Layer -->
+  <path d="M 600 505 L 600 535" class="arrow"/>
+  <text x="620" y="525" class="arrow-label">Requests Calculations</text>
+
+  <!-- Layer 4: Tool Layer -->
+  <rect x="50" y="535" width="1100" height="130" class="box layer-bg-tool"/>
+  <text x="60" y="555" class="layer-title" style="fill: #1b5e20;">🛠️ TOOL LAYER (Deterministic Engine)</text>
+
+  <rect x="100" y="570" width="180" height="80" class="box" fill="#ffffff"/>
+  <text x="190" y="590" text-anchor="middle" class="box-title">Load Calculations</text>
+  <text x="190" y="608" text-anchor="middle" class="box-subtitle">Peak, average, energy</text>
+  <text x="190" y="623" text-anchor="middle" class="box-subtitle">Duration analysis</text>
+
+  <rect x="320" y="570" width="180" height="80" class="box" fill="#ffffff"/>
+  <text x="410" y="590" text-anchor="middle" class="box-title">PV Calculations</text>
+  <text x="410" y="608" text-anchor="middle" class="box-subtitle">Capacity ratios</text>
+  <text x="410" y="623" text-anchor="middle" class="box-subtitle">Generation estimate</text>
+
+  <rect x="540" y="570" width="180" height="80" class="box" fill="#ffffff"/>
+  <text x="630" y="590" text-anchor="middle" class="box-title">Battery Simulation</text>
+  <text x="630" y="608" text-anchor="middle" class="box-subtitle">SOC simulation</text>
+  <text x="630" y="623" text-anchor="middle" class="box-subtitle">Duration: E÷P</text>
+
+  <rect x="760" y="570" width="180" height="80" class="box" fill="#ffffff"/>
+  <text x="850" y="590" text-anchor="middle" class="box-title">RAG & PDF</text>
+  <text x="850" y="608" text-anchor="middle" class="box-subtitle">Text extraction</text>
+  <text x="850" y="623" text-anchor="middle" class="box-subtitle">Keyword search</text>
+
+  <!-- Arrow to Data Layer -->
+  <path d="M 600 675 L 600 705" class="arrow"/>
+  <text x="620" y="695" class="arrow-label">Read/Process Data</text>
+
+  <!-- Layer 5: Data Layer -->
+  <rect x="50" y="705" width="1100" height="120" class="box layer-bg-data"/>
+  <text x="60" y="725" class="layer-title" style="fill: #880e4f;">💾 DATA LAYER</text>
+
+  <rect x="120" y="740" width="200" height="70" class="box" fill="#ffffff"/>
+  <text x="220" y="760" text-anchor="middle" class="box-title">Demo Data (CSV)</text>
+  <text x="220" y="778" text-anchor="middle" class="box-subtitle">demo_load.csv</text>
+  <text x="220" y="793" text-anchor="middle" class="box-subtitle">demo_pv.csv</text>
+
+  <rect x="380" y="740" width="200" height="70" class="box" fill="#ffffff"/>
+  <text x="480" y="760" text-anchor="middle" class="box-title">User Uploads</text>
+  <text x="480" y="778" text-anchor="middle" class="box-subtitle">Load CSV</text>
+  <text x="480" y="793" text-anchor="middle" class="box-subtitle">PDF specs</text>
+
+  <rect x="640" y="740" width="200" height="70" class="box" fill="#ffffff"/>
+  <text x="740" y="760" text-anchor="middle" class="box-title">Streamlit Secrets</text>
+  <text x="740" y="778" text-anchor="middle" class="box-subtitle">API keys</text>
+  <text x="740" y="793" text-anchor="middle" class="box-subtitle">Configuration</text>
+
+  <rect x="900" y="740" width="200" height="70" class="box" fill="#ffffff"/>
+  <text x="1000" y="760" text-anchor="middle" class="box-title">LLM Provider</text>
+  <text x="1000" y="778" text-anchor="middle" class="box-subtitle">OpenAI API</text>
+  <text x="1000" y="793" text-anchor="middle" class="box-subtitle">GPT-3.5-turbo</text>
+
+  <!-- Data Flow Back Up -->
+  <path d="M 600 835 L 600 805" class="arrow" stroke-dasharray="5,5"/>
+  <text x="550" y="825" class="arrow-label">Processed Results</text>
+
+  <!-- Legend -->
+  <text x="60" y="880" font-size="11" fill="#666666">Flow: User Input → Orchestrator → Agents → Tools → Data → Results → Dashboard</text>
+</svg>
