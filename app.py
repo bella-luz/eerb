@@ -2,17 +2,20 @@
 Energy Engineering Review Board (EERB)
 AI engineering review before you build.
 """
+# Load environment variables FIRST
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime
 import json
-import os
 
 # Add project root to path
 import sys
-import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Import utilities
