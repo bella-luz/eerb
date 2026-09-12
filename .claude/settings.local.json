@@ -5,7 +5,14 @@
       "Bash(git config *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(python -m pip install -q streamlit pandas numpy plotly python-dotenv openai pydantic PyPDF2 requests)"
+      "Bash(python -m pip install -q streamlit pandas numpy plotly python-dotenv openai pydantic PyPDF2 requests)",
+      "Bash(python -c \"import sys; sys.path.insert\\(0, '.'\\); from calculations.load import analyze_load_profile; print\\('✓ Imports work'\\)\")",
+      "Bash(python -c \"import sys; sys.path.insert\\(0, '.'\\); from calculations.load import analyze_load_profile; print\\('OK'\\)\")",
+      "Bash(git rm *)",
+      "Bash(git push *)",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "Bash(git commit -m 'Design: Complete dark mode AI/robotic redesign - modern engineering aesthetic *)"
     ]
   }
 }
