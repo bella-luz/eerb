@@ -650,9 +650,9 @@ def show_about():
     col1, col2, col3 = st.columns(3)
     with col2:
         st.markdown("""
-        <div style="text-align: center; padding: 20px; background: #f0f2f6; border-radius: 8px;">
-            <h3 style="margin: 0 0 10px 0;">Ready to Validate Your Project?</h3>
-            <p style="margin: 0; font-size: 14px;">Start with the demo or upload your own project.</p>
+        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 12px;">
+            <h3 style="margin: 0 0 10px 0; color: #00d9ff; font-weight: 700;">Ready to Validate Your Project?</h3>
+            <p style="margin: 0; font-size: 14px; color: #cbd5e1;">Start with the demo or upload your own project.</p>
         </div>
         """, unsafe_allow_html=True)
 
