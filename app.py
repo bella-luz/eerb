@@ -38,179 +38,230 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS - Modern Design
+# Dark Mode AI/Robotic Design - Modern Engineering Aesthetic
 st.markdown("""
     <style>
     * {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     }
 
-    body {
-        background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f6 100%);
+    /* Dark background with gradient */
+    body, [data-testid="stAppViewContainer"] {
+        background: linear-gradient(135deg, #0a1628 0%, #1e293b 50%, #162a47 100%);
+        color: #e2e8f0;
     }
 
-    /* Tab styling */
+    [data-testid="stMainBlockContainer"] {
+        background: transparent;
+    }
+
+    /* Tab styling - Web-like */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.5);
-        padding: 8px;
-        border-radius: 12px;
+        gap: 0px;
+        background: rgba(15, 23, 42, 0.8);
+        padding: 4px;
+        border-radius: 10px 10px 0 0;
+        border-bottom: 2px solid #00d9ff;
+        backdrop-filter: blur(10px);
     }
 
     .stTabs [data-baseweb="tab-list"] button {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
-        padding: 10px 20px;
-        border-radius: 8px;
+        padding: 12px 24px;
+        border-radius: 8px 8px 0 0;
         border: none;
-        background: rgba(255, 255, 255, 0.6);
-        color: #334155;
+        background: transparent;
+        color: #94a3b8;
         transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 12px;
     }
 
     .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
-        background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-        color: white;
-        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%);
+        color: #0a1628;
+        box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
+        font-weight: 700;
     }
 
     .stTabs [data-baseweb="tab-list"] button:hover {
-        background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-        color: white;
+        color: #00d9ff;
+        background: rgba(0, 217, 255, 0.1);
     }
 
-    /* Card styling */
+    /* Card styling - Dark theme */
     .metric-card {
-        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
         padding: 24px;
         border-radius: 12px;
-        margin: 10px 0;
-        border: 1px solid rgba(0, 102, 204, 0.1);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        margin: 12px 0;
+        border: 1px solid rgba(0, 217, 255, 0.2);
+        box-shadow: 0 0 20px rgba(0, 217, 255, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.05);
         transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
     }
 
     .metric-card:hover {
-        box-shadow: 0 8px 16px rgba(0, 102, 204, 0.15);
-        transform: translateY(-2px);
+        border-color: rgba(0, 217, 255, 0.5);
+        box-shadow: 0 0 30px rgba(0, 217, 255, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        transform: translateY(-4px);
     }
 
-    /* Conflict detection styling */
-    .conflict-box {
-        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-        padding: 18px;
-        border-radius: 10px;
-        border-left: 5px solid #f59e0b;
-        margin: 12px 0;
-        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
-    }
-
-    /* Finding severity boxes */
-    .finding-box {
-        padding: 14px;
-        border-radius: 8px;
-        margin: 10px 0;
-        border-left: 5px solid #ccc;
-        background: white;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    }
-
-    .finding-critical {
-        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-        border-left-color: #ef4444;
-        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
-    }
-
-    .finding-high {
-        background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
-        border-left-color: #f97316;
-        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
-    }
-
-    .finding-medium {
-        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-        border-left-color: #eab308;
-        box-shadow: 0 4px 12px rgba(234, 179, 8, 0.2);
-    }
-
-    .finding-low {
-        background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-        border-left-color: #22c55e;
-        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
-    }
-
-    /* Hero section */
+    /* Hero section - Dark & AI-themed */
     .hero-section {
-        background: linear-gradient(135deg, #0066cc 0%, #003d99 100%);
-        padding: 60px 30px;
-        border-radius: 16px;
-        color: white;
+        background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 50%, #0ea5e9 100%);
+        padding: 80px 40px;
+        border-radius: 20px;
+        color: #0a1628;
         text-align: center;
-        margin-bottom: 40px;
-        box-shadow: 0 8px 32px rgba(0, 102, 204, 0.25);
+        margin-bottom: 50px;
+        box-shadow: 0 0 60px rgba(0, 217, 255, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
     }
 
     .hero-section h1 {
         margin: 0;
-        font-size: 48px;
-        font-weight: 700;
-        letter-spacing: -1px;
+        font-size: 52px;
+        font-weight: 800;
+        letter-spacing: -2px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .hero-section p {
-        margin: 12px 0 0 0;
-        font-size: 22px;
+        margin: 16px 0 0 0;
+        font-size: 20px;
         opacity: 0.95;
-        font-weight: 300;
+        font-weight: 500;
     }
 
     /* Section titles */
     h2 {
-        color: #0066cc;
-        font-weight: 700;
-        margin-top: 32px;
-        margin-bottom: 20px;
-        font-size: 28px;
+        color: #00d9ff;
+        font-weight: 800;
+        margin-top: 40px;
+        margin-bottom: 24px;
+        font-size: 32px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
     }
 
     h3 {
-        color: #0052a3;
-        font-weight: 600;
+        color: #00d9ff;
+        font-weight: 700;
         margin-top: 24px;
         margin-bottom: 16px;
-        font-size: 20px;
+        font-size: 18px;
+        letter-spacing: 0.5px;
     }
 
-    /* Buttons */
+    /* Buttons - Futuristic */
     .stButton > button {
-        background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 12px 24px;
-        font-weight: 600;
-        font-size: 15px;
+        background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%);
+        color: #0a1628;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        padding: 14px 32px;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        cursor: pointer;
     }
 
     .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+        transform: translateY(-4px);
+        box-shadow: 0 0 40px rgba(0, 217, 255, 0.6);
+        border-color: rgba(249, 115, 22, 0.5);
     }
 
-    /* Info box */
+    /* Info/Alert boxes */
     .stAlert {
-        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-        border: 1px solid #3b82f6;
+        background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%);
+        border: 1px solid rgba(0, 217, 255, 0.3);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+    }
+
+    /* Conflict/Warning boxes */
+    .conflict-box {
+        background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+        padding: 18px;
+        border-radius: 12px;
+        border-left: 5px solid #f97316;
+        margin: 12px 0;
+        box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
+        border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    /* Finding boxes */
+    .finding-box {
+        padding: 16px;
         border-radius: 10px;
+        margin: 12px 0;
+        border-left: 4px solid #00d9ff;
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+        box-shadow: 0 0 15px rgba(0, 217, 255, 0.1);
+        border: 1px solid rgba(0, 217, 255, 0.2);
+    }
+
+    .finding-critical {
+        border-left-color: #ef4444;
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+        border-color: rgba(239, 68, 68, 0.3);
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+    }
+
+    .finding-high {
+        border-left-color: #f97316;
+        background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(234, 88, 12, 0.05) 100%);
+        border-color: rgba(249, 115, 22, 0.3);
+        box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
+    }
+
+    .finding-medium {
+        border-left-color: #eab308;
+        background: linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(202, 138, 4, 0.05) 100%);
+        border-color: rgba(234, 179, 8, 0.3);
+    }
+
+    .finding-low {
+        border-left-color: #10b981;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+        border-color: rgba(16, 185, 129, 0.3);
     }
 
     /* Divider */
     hr {
         border: none;
-        border-top: 2px solid rgba(0, 102, 204, 0.15);
-        margin: 30px 0;
+        border-top: 1px solid rgba(0, 217, 255, 0.2);
+        margin: 40px 0;
+    }
+
+    /* Text colors */
+    p, span {
+        color: #e2e8f0;
+    }
+
+    strong {
+        color: #00d9ff;
+        font-weight: 700;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -218,22 +269,25 @@ st.markdown("""
 
 def main():
     """Main application entry point."""
-    # Header
+    # Header - Clean, modern, AI-theme
     st.markdown("""
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; padding: 24px 0; border-bottom: 2px solid rgba(0, 102, 204, 0.2);">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 50px; padding: 30px 0; border-bottom: 2px solid rgba(0, 217, 255, 0.3);">
         <div>
-            <h1 style="margin: 0; font-size: 32px; font-weight: 700; background: linear-gradient(135deg, #0066cc 0%, #003d99 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">⚡ EERB</h1>
-            <p style="margin: 6px 0 0 0; color: #0066cc; font-size: 13px; font-weight: 600;">Energy Engineering Review Board</p>
+            <h1 style="margin: 0; font-size: 36px; font-weight: 900; background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -1px;">EERB</h1>
+            <p style="margin: 8px 0 0 0; color: #00d9ff; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Energy Engineering Review</p>
         </div>
-        <p style="text-align: right; margin: 0; font-size: 13px; color: #0052a3; font-weight: 500;">🤖 AI Engineering Review Before You Build</p>
+        <div style="text-align: right;">
+            <p style="margin: 0; font-size: 14px; color: #00d9ff; font-weight: 600;">AI-Powered Engineering Analysis</p>
+            <p style="margin: 4px 0 0 0; font-size: 11px; color: #94a3b8; letter-spacing: 0.5px;">Before You Build</p>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # Navigation Tabs
-    tab1, tab2, tab3, tab4 = st.tabs(["Home", "Demo Project", "Upload Project", "About"])
+    # Navigation Tabs - Reorganized for better flow
+    tab1, tab2, tab3, tab4 = st.tabs(["Overview", "Demo", "Upload", "Home"])
 
     with tab1:
-        show_home()
+        show_about()
 
     with tab2:
         show_demo_project()
@@ -242,7 +296,7 @@ def main():
         show_upload_project()
 
     with tab4:
-        show_about()
+        show_home()
 
     # Disclaimer Footer
     st.markdown("---")
@@ -389,48 +443,98 @@ def show_home():
 
 
 def show_about():
-    """Display About section with impressive branding."""
+    """Display About section (Overview tab) with AI-robotic aesthetic."""
 
-    # About Section
-    st.markdown("### About EERB")
+    st.markdown("## System Overview")
+
+    # Problem statement
     st.markdown("""
-    <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 24px; border-radius: 12px; border-left: 5px solid #0066cc; margin-bottom: 24px;">
-        <p style="margin: 0; color: #1e293b; line-height: 1.6;">
-            <strong>Energy Engineering Review Board (EERB)</strong> is an innovative AI platform that transforms how renewable energy projects are validated. Traditional reviews are slow and expensive. Engineers spend weeks manually verifying designs. Issues surface late—when fixes cost thousands.
-        </p>
-        <p style="margin: 16px 0 0 0; color: #475569; line-height: 1.6;">
-            EERB changes this by providing <strong>instant, systematic preliminary review</strong> using specialized AI agents that work in parallel, detect conflicts automatically, and deliver traceable results.
+    <div class="metric-card" style="border-left: 4px solid #ef4444;">
+        <h3 style="margin-top: 0; color: #ef4444;">The Challenge</h3>
+        <p style="margin: 12px 0; line-height: 1.7;">
+            Renewable energy projects face critical design flaws that emerge too late. Engineers spend weeks manually verifying solar capacity, battery duration, and load profiles. Technical contradictions go undetected. Expensive engineering work begins on flawed assumptions. The cost: weeks of delay, $50K+ in rework.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-    # Three Pillars
+    st.markdown("")
+
+    # Solution statement
+    st.markdown("""
+    <div class="metric-card" style="border-left: 4px solid #10b981;">
+        <h3 style="margin-top: 0; color: #10b981;">Our Solution</h3>
+        <p style="margin: 12px 0; line-height: 1.7;">
+            EERB uses <strong>6 specialized AI agents</strong> working in parallel to analyze renewable energy designs systematically. Multi-agent analysis detects conflicts automatically. Deterministic calculations ensure every conclusion is verifiable. Professional report delivered in minutes instead of weeks.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("")
+    st.markdown("---")
+    st.markdown("")
+
+    # Three Pillars - Clean, modern design
     col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown("""
         <div class="metric-card">
-            <h3 style="margin-top: 0; text-align: center; color: #0066cc;">⚡ Speed</h3>
-            <p style="text-align: center; margin: 12px 0; color: #1e293b; font-size: 18px; font-weight: 700;">2-5 minutes</p>
-            <p style="text-align: center; margin: 0; color: #64748b; font-size: 13px;">Not weeks. Preliminary review in minutes. Get answers now.</p>
+            <div style="font-size: 28px; margin-bottom: 12px;">⚡</div>
+            <h3 style="margin: 0 0 12px 0; color: #00d9ff; font-size: 16px; text-transform: uppercase; letter-spacing: 1px;">SPEED</h3>
+            <p style="margin: 0 0 8px 0; color: #00d9ff; font-size: 20px; font-weight: 800;">2-5 MIN</p>
+            <p style="margin: 0; color: #94a3b8; font-size: 13px; line-height: 1.6;">Preliminary review in minutes. Not weeks of manual analysis.</p>
         </div>
         """, unsafe_allow_html=True)
 
     with col2:
         st.markdown("""
         <div class="metric-card">
-            <h3 style="margin-top: 0; text-align: center; color: #0066cc;">🎯 Intelligence</h3>
-            <p style="text-align: center; margin: 12px 0; color: #1e293b; font-size: 18px; font-weight: 700;">6 AI Agents</p>
-            <p style="text-align: center; margin: 0; color: #64748b; font-size: 13px;">Specialized analysis: Load, PV, Battery, Specs, Critique, Synthesis.</p>
+            <div style="font-size: 28px; margin-bottom: 12px;">🧠</div>
+            <h3 style="margin: 0 0 12px 0; color: #00d9ff; font-size: 16px; text-transform: uppercase; letter-spacing: 1px;">INTELLIGENCE</h3>
+            <p style="margin: 0 0 8px 0; color: #00d9ff; font-size: 20px; font-weight: 800;">6 AI AGENTS</p>
+            <p style="margin: 0; color: #94a3b8; font-size: 13px; line-height: 1.6;">Load analysis, PV design, battery systems, specifications, critique, synthesis.</p>
         </div>
         """, unsafe_allow_html=True)
 
     with col3:
         st.markdown("""
         <div class="metric-card">
-            <h3 style="margin-top: 0; text-align: center; color: #0066cc;">📊 Confidence</h3>
-            <p style="text-align: center; margin: 12px 0; color: #1e293b; font-size: 18px; font-weight: 700;">Verified Math</p>
-            <p style="text-align: center; margin: 0; color: #64748b; font-size: 13px;">Every number is verifiable. Every conclusion is traceable.</p>
+            <div style="font-size: 28px; margin-bottom: 12px;">✓</div>
+            <h3 style="margin: 0 0 12px 0; color: #00d9ff; font-size: 16px; text-transform: uppercase; letter-spacing: 1px;">CONFIDENCE</h3>
+            <p style="margin: 0 0 8px 0; color: #00d9ff; font-size: 20px; font-weight: 800;">VERIFIED</p>
+            <p style="margin: 0; color: #94a3b8; font-size: 13px; line-height: 1.6;">Deterministic math. Every number verifiable. Every conclusion traceable.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("")
+    st.markdown("---")
+    st.markdown("")
+
+    # Technology Stack
+    st.markdown("## Technology Stack")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("""
+        <div class="metric-card">
+            <h4 style="margin-top: 0; color: #00d9ff;">COMPUTATION</h4>
+            <p style="margin: 8px 0 0 0; color: #94a3b8; font-size: 13px;">
+                Python • Deterministic Calculations<br/>
+                OpenAI GPT-3.5 • Reasoning Layer<br/>
+                Multi-Agent Orchestration
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("""
+        <div class="metric-card">
+            <h4 style="margin-top: 0; color: #00d9ff;">DEPLOYMENT</h4>
+            <p style="margin: 8px 0 0 0; color: #94a3b8; font-size: 13px;">
+                Streamlit Cloud Backend<br/>
+                React/Vercel Frontend<br/>
+                Cloud-Native Architecture
+            </p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -519,38 +623,41 @@ def show_about():
 
 
 def show_demo_project():
-    """Display demo project analysis."""
-    st.markdown("## 📊 Demo Project: Commercial Building with Solar + Battery")
+    """Display demo project analysis - Dynamic & Interactive."""
+    st.markdown("## Demo Analysis")
 
     # Load demo data
     try:
         load_df, pv_df = load_demo_data("data")
         load_kw, pv_kw = align_timeseries(load_df, pv_df)
     except Exception as e:
-        st.error(f"❌ Failed to load demo data: {str(e)}")
+        st.error(f"Failed to load demo data: {str(e)}")
         return
 
-    # Project info
-    st.markdown("### Project Overview")
-    col1, col2, col3, col4 = st.columns(4)
-
-    with col1:
-        st.metric("☀️ PV Capacity", "500 kW", "Pre-configured")
-    with col2:
-        st.metric("🔋 BESS Capacity", "1,000 kWh", "Energy storage")
-    with col3:
-        st.metric("⚡ BESS Power", "500 kW", "Discharge rate")
-    with col4:
-        st.metric("🎯 Objective", "Peak Reduction", "≈30% target")
-
-    # Project description
+    # Project specification card
     st.markdown("""
-    <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 1px solid #0284c7; padding: 16px; border-radius: 10px; margin: 16px 0;">
-        <p style="margin: 0; color: #0c4a6e;">
-            <strong>Location:</strong> Karachi, Pakistan 🇵🇰<br/>
-            <strong>Type:</strong> Commercial Building Retrofit<br/>
-            <strong>Objective:</strong> Reduce peak demand by approximately 30%
-        </p>
+    <div class="metric-card" style="border-left: 4px solid #00d9ff; margin-bottom: 30px;">
+        <h3 style="margin-top: 0; color: #00d9ff; text-transform: uppercase; letter-spacing: 1px;">Commercial Building Retrofit</h3>
+        <p style="color: #94a3b8; margin: 8px 0;">Karachi, Pakistan | Peak Demand Reduction Study</p>
+        <hr style="border-color: rgba(0, 217, 255, 0.2); margin: 12px 0;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px;">
+            <div style="text-align: center;">
+                <div style="font-size: 24px; color: #00d9ff; font-weight: 800;">500</div>
+                <div style="font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">kW PV</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 24px; color: #00d9ff; font-weight: 800;">1,000</div>
+                <div style="font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">kWh BESS</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 24px; color: #00d9ff; font-weight: 800;">500</div>
+                <div style="font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">kW Discharge</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 24px; color: #f97316; font-weight: 800;">~30%</div>
+                <div style="font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">Target</div>
+            </div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
