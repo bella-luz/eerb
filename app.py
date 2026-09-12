@@ -308,39 +308,13 @@ st.markdown("""
 
 def main():
     """Main application entry point."""
-    # Premium hero header with visual impact
-    st.markdown("""
-    <div style="position: relative; margin-bottom: 70px; padding: 100px 50px; background: linear-gradient(180deg, #0f2a4d 0%, #1a4d7a 20%, #0d3a5c 40%, #051f38 60%, #0a1e38 80%, #051428 100%); border-radius: 28px; overflow: hidden; box-shadow: 0 0 80px rgba(0, 217, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.markdown("# EERB", unsafe_allow_html=True)
+        st.markdown("## Energy Engineering Review Board", unsafe_allow_html=True)
+        st.markdown("### *AI-Powered Engineering Analysis Before You Build*", unsafe_allow_html=True)
 
-        <!-- Glowing background orbs -->
-        <div style="position: absolute; top: -50px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0, 217, 255, 0.2) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
-        <div style="position: absolute; bottom: -80px; left: -120px; width: 350px; height: 350px; background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
-
-        <!-- Gradient overlay lines -->
-        <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(0, 217, 255, 0.3) 50%, transparent 100%); z-index: 0;"></div>
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(249, 115, 22, 0.2) 50%, transparent 100%); z-index: 0;"></div>
-
-        <!-- Content -->
-        <div style="position: relative; z-index: 1; text-align: center;">
-            <!-- Badge -->
-            <div style="display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(6, 182, 212, 0.08) 100%); border: 1px solid rgba(0, 217, 255, 0.4); border-radius: 50px; margin-bottom: 32px; box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);">
-                <p style="color: #00d9ff; font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin: 0;">AI Engineering Platform</p>
-            </div>
-
-            <!-- Main headline -->
-            <h1 style="margin: 0 0 20px 0; font-size: 80px; font-weight: 950; background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 20%, #0ea5e9 40%, #06b6d4 60%, #00d9ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -4px; line-height: 0.95;">EERB</h1>
-
-            <!-- Subtitle -->
-            <p style="margin: 0 0 24px 0; color: #00d9ff; font-size: 17px; font-weight: 800; letter-spacing: 2.8px; text-transform: uppercase; text-shadow: 0 0 20px rgba(0, 217, 255, 0.2);">Energy Engineering Review Board</p>
-
-            <!-- Tagline -->
-            <p style="margin: 0; font-size: 22px; color: #cbd5e1; font-weight: 300; letter-spacing: 0.8px; line-height: 1.6; opacity: 0.95;">
-                <span style="color: #00d9ff; font-weight: 700;">AI-Powered</span> Engineering Analysis<br/>
-                <span style="font-size: 19px; opacity: 0.85;">Before You Build</span>
-            </p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("---")
 
     # Navigation Tabs - Reorganized for better flow
     tab1, tab2, tab3, tab4 = st.tabs(["Overview", "Demo", "Upload", "Home"])
