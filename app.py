@@ -55,7 +55,7 @@ st.markdown("""
         background: transparent;
     }
 
-    /* Tab styling - Premium web-like */
+    /* Tab styling - Premium web-like, centered */
     .stTabs [data-baseweb="tab-list"] {
         gap: 0px;
         background: rgba(15, 23, 42, 0.95);
@@ -64,6 +64,8 @@ st.markdown("""
         border-bottom: 3px solid #00d9ff;
         backdrop-filter: blur(20px);
         box-shadow: 0 -4px 20px rgba(0, 217, 255, 0.15);
+        display: flex;
+        justify-content: center;
     }
 
     .stTabs [data-baseweb="tab-list"] button {
