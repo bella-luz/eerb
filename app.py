@@ -38,45 +38,179 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS
+# Custom CSS - Modern Design
 st.markdown("""
     <style>
+    * {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f6 100%);
+    }
+
+    /* Tab styling */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 8px;
+        border-radius: 12px;
+    }
+
     .stTabs [data-baseweb="tab-list"] button {
-        font-size: 16px;
-    }
-    .metric-card {
-        background-color: #f0f2f6;
-        padding: 20px;
-        border-radius: 10px;
-        margin: 10px 0;
-    }
-    .conflict-box {
-        background-color: #fff3cd;
-        padding: 15px;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 10px 20px;
         border-radius: 8px;
-        border-left: 4px solid #ff6b6b;
+        border: none;
+        background: rgba(255, 255, 255, 0.6);
+        color: #334155;
+        transition: all 0.3s ease;
+    }
+
+    .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
+        background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+        color: white;
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    }
+
+    .stTabs [data-baseweb="tab-list"] button:hover {
+        background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+        color: white;
+    }
+
+    /* Card styling */
+    .metric-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        padding: 24px;
+        border-radius: 12px;
         margin: 10px 0;
+        border: 1px solid rgba(0, 102, 204, 0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s ease;
     }
+
+    .metric-card:hover {
+        box-shadow: 0 8px 16px rgba(0, 102, 204, 0.15);
+        transform: translateY(-2px);
+    }
+
+    /* Conflict detection styling */
+    .conflict-box {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        padding: 18px;
+        border-radius: 10px;
+        border-left: 5px solid #f59e0b;
+        margin: 12px 0;
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+    }
+
+    /* Finding severity boxes */
     .finding-box {
-        padding: 10px;
-        border-radius: 6px;
-        margin: 8px 0;
+        padding: 14px;
+        border-radius: 8px;
+        margin: 10px 0;
+        border-left: 5px solid #ccc;
+        background: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     }
+
     .finding-critical {
-        background-color: #ffe0e0;
-        border-left: 4px solid #ff0000;
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        border-left-color: #ef4444;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
     }
+
     .finding-high {
-        background-color: #ffe8cc;
-        border-left: 4px solid #ff6b00;
+        background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+        border-left-color: #f97316;
+        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
     }
+
     .finding-medium {
-        background-color: #fff9e6;
-        border-left: 4px solid #ffb800;
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        border-left-color: #eab308;
+        box-shadow: 0 4px 12px rgba(234, 179, 8, 0.2);
     }
+
     .finding-low {
-        background-color: #e8f5e9;
-        border-left: 4px solid #4caf50;
+        background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+        border-left-color: #22c55e;
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+    }
+
+    /* Hero section */
+    .hero-section {
+        background: linear-gradient(135deg, #0066cc 0%, #003d99 100%);
+        padding: 60px 30px;
+        border-radius: 16px;
+        color: white;
+        text-align: center;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 32px rgba(0, 102, 204, 0.25);
+    }
+
+    .hero-section h1 {
+        margin: 0;
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: -1px;
+    }
+
+    .hero-section p {
+        margin: 12px 0 0 0;
+        font-size: 22px;
+        opacity: 0.95;
+        font-weight: 300;
+    }
+
+    /* Section titles */
+    h2 {
+        color: #0066cc;
+        font-weight: 700;
+        margin-top: 32px;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    h3 {
+        color: #0052a3;
+        font-weight: 600;
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-size: 20px;
+    }
+
+    /* Buttons */
+    .stButton > button {
+        background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    }
+
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+    }
+
+    /* Info box */
+    .stAlert {
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        border: 1px solid #3b82f6;
+        border-radius: 10px;
+    }
+
+    /* Divider */
+    hr {
+        border: none;
+        border-top: 2px solid rgba(0, 102, 204, 0.15);
+        margin: 30px 0;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -86,12 +220,12 @@ def main():
     """Main application entry point."""
     # Header
     st.markdown("""
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; border-bottom: 2px solid #0066cc; padding-bottom: 15px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; padding: 24px 0; border-bottom: 2px solid rgba(0, 102, 204, 0.2);">
         <div>
-            <h1 style="margin: 0;">EERB</h1>
-            <p style="margin: 5px 0 0 0; color: #0066cc; font-size: 14px;">Energy Engineering Review Board</p>
+            <h1 style="margin: 0; font-size: 32px; font-weight: 700; background: linear-gradient(135deg, #0066cc 0%, #003d99 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">⚡ EERB</h1>
+            <p style="margin: 6px 0 0 0; color: #0066cc; font-size: 13px; font-weight: 600;">Energy Engineering Review Board</p>
         </div>
-        <p style="text-align: right; margin: 0; font-size: 12px; color: #666;">AI Engineering Review Before You Build</p>
+        <p style="text-align: right; margin: 0; font-size: 13px; color: #0052a3; font-weight: 500;">🤖 AI Engineering Review Before You Build</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -113,9 +247,14 @@ def main():
     # Disclaimer Footer
     st.markdown("---")
     st.markdown("""
-    <div style="font-size: 10px; color: #999; text-align: center; margin-top: 20px;">
-    <b>Disclaimer:</b> This AI-assisted preliminary engineering review does not constitute final design, safety certification, regulatory approval, or professional engineering sign-off.
-    Always have results reviewed by licensed professional engineers before implementation.
+    <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 1px solid #f59e0b; border-radius: 10px; padding: 16px; margin-top: 40px; text-align: center;">
+        <p style="margin: 0; font-size: 12px; color: #92400e; font-weight: 600;">
+            ⚠️  DISCLAIMER
+        </p>
+        <p style="margin: 8px 0 0 0; font-size: 11px; color: #b45309; line-height: 1.5;">
+            This AI-assisted preliminary engineering review does not constitute final design, safety certification, regulatory approval, or professional engineering sign-off.<br/>
+            <strong>Always have results reviewed by licensed professional engineers before implementation.</strong>
+        </p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -125,80 +264,126 @@ def show_home():
 
     # Hero Section
     st.markdown("""
-    <div style="background: linear-gradient(135deg, #0066cc 0%, #003d99 100%); padding: 60px 20px; border-radius: 10px; color: white; text-align: center; margin-bottom: 40px;">
-        <h1 style="margin: 0; font-size: 48px; font-weight: bold;">Energy Engineering Review Board</h1>
-        <p style="margin: 10px 0 0 0; font-size: 24px; opacity: 0.95;">AI Engineering Review Before You Build</p>
+    <div class="hero-section">
+        <h1>Energy Engineering Review Board</h1>
+        <p>AI-Powered Preliminary Engineering Analysis in Minutes</p>
     </div>
     """, unsafe_allow_html=True)
 
     # Value Proposition Section
-    st.markdown("### Why EERB?")
+    st.markdown("### 🎯 Why Choose EERB?")
     col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown("""
-        **⚡ Rapid Assessment**
-        - 2-5 minutes vs 2 weeks
-        - Instant preliminary review
-        """)
+        <div class="metric-card">
+            <h3 style="margin-top: 0; color: #0066cc;">⚡ Rapid Assessment</h3>
+            <p style="margin: 12px 0; color: #475569;">
+                <strong>2-5 minutes</strong><br/>
+                vs 2 weeks traditional review
+            </p>
+            <p style="font-size: 13px; color: #64748b; margin: 0;">Instant preliminary analysis, not weeks of delay</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col2:
         st.markdown("""
-        **🎯 Conflict Detection**
-        - Identifies inconsistencies
-        - Flags technical issues early
-        """)
+        <div class="metric-card">
+            <h3 style="margin-top: 0; color: #0066cc;">🎯 Conflict Detection</h3>
+            <p style="margin: 12px 0; color: #475569;">
+                <strong>Catch Issues Early</strong><br/>
+                Before expensive rework
+            </p>
+            <p style="font-size: 13px; color: #64748b; margin: 0;">Multi-agent system identifies technical contradictions</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col3:
         st.markdown("""
-        **📊 Traceable Results**
-        - Source-referenced findings
-        - Clear recommendations
-        """)
+        <div class="metric-card">
+            <h3 style="margin-top: 0; color: #0066cc;">📊 Traceable Results</h3>
+            <p style="margin: 12px 0; color: #475569;">
+                <strong>Professional Reports</strong><br/>
+                Detailed findings & recommendations
+            </p>
+            <p style="font-size: 13px; color: #64748b; margin: 0;">Every conclusion is verifiable and referenced</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
     # How It Works Section
-    st.markdown("### How It Works")
-    st.write("""
-    EERB uses **6 specialized AI agents** that independently analyze your project from different angles:
+    st.markdown("### 🔍 How It Works")
 
-    1. **Load Analyst** → Examines electricity consumption patterns
-    2. **PV Engineer** → Evaluates solar capacity adequacy
-    3. **BESS Engineer** → Assesses battery storage capability
-    4. **Specification Engineer** → Reviews technical documents
-    5. **Independent Critic** → Challenges conclusions, finds conflicts
-    6. **Lead Engineer** → Synthesizes findings into final report
+    cols = st.columns(3)
 
-    All calculations are **deterministic** (verified mathematics) — no AI guessing on critical numbers.
+    agents = [
+        ("📊 Load Analyst", "Examines electricity consumption patterns and peak demands"),
+        ("☀️ PV Engineer", "Evaluates solar capacity adequacy and generation potential"),
+        ("🔋 BESS Engineer", "Assesses battery storage capability and discharge duration"),
+        ("📋 Spec Engineer", "Reviews technical documents and requirements"),
+        ("🤔 Independent Critic", "Challenges conclusions and identifies conflicts"),
+        ("👨‍💼 Lead Engineer", "Synthesizes findings into professional report")
+    ]
+
+    for i, (title, desc) in enumerate(agents):
+        with cols[i % 3]:
+            st.markdown(f"""
+            <div class="metric-card">
+                <h4 style="margin: 0 0 8px 0; color: #0066cc;">{title}</h4>
+                <p style="margin: 0; font-size: 13px; color: #64748b;">{desc}</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border: 1px solid #3b82f6; padding: 16px; border-radius: 10px; margin-top: 20px;">
+        <p style="margin: 0; color: #0c4a6e; font-size: 14px;"><strong>✓ Deterministic Calculations</strong><br/>All math is verifiable and reproducible — no AI guessing on critical numbers.</p>
+    </div>
     """)
 
     st.markdown("---")
 
     # Use Case Section
-    st.markdown("### Demo Scenario")
-    st.write("""
-    **500 kW Solar PV + 1 MWh Battery Storage for Commercial Building**
-
-    This demo shows EERB detecting a real technical issue:
-    - Load peak duration: **4.5 hours**
-    - Battery discharge duration: **2 hours**
-    - **Result**: Battery insufficient for stated objective ⚠️
-
-    EERB automatically flags this for professional verification.
-    """)
+    st.markdown("### 📋 Demo Scenario")
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0284c7; padding: 24px; border-radius: 12px; margin: 20px 0;">
+        <h4 style="margin: 0 0 12px 0; color: #0c4a6e;">Commercial Building with Solar + Battery Storage</h4>
+        <p style="margin: 8px 0; color: #0c4a6e;"><strong>System Specification:</strong> 500 kW PV + 1 MWh Battery (500 kW discharge)</p>
+        <p style="margin: 8px 0; color: #0c4a6e;"><strong>Technical Finding:</strong> Load peak duration (4.5 hrs) exceeds battery discharge duration (2 hrs)</p>
+        <div style="background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%); padding: 12px; border-radius: 8px; margin-top: 12px; border-left: 4px solid #f97316;">
+            <p style="margin: 0; color: #7c2d12; font-weight: 600;">⚠️ Battery Insufficient for Peak-Shaving Objective</p>
+            <p style="margin: 6px 0 0 0; font-size: 13px; color: #92400e;">EERB flags this design issue automatically for professional review and correction.</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("---")
 
     # CTA
+    st.markdown("### 🚀 Get Started")
+    col1, col2, col3 = st.columns([1, 1, 1])
+
+    with col1:
+        st.markdown("")
+
+    with col2:
+        st.markdown("""
+        <div style="text-align: center;">
+            <p style="color: #64748b; font-size: 14px; margin-bottom: 16px;">Choose how you want to proceed:</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col3:
+        st.markdown("")
+
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("▶️ Try Demo Project", key="home_demo", use_container_width=True):
+        if st.button("▶️  Demo Project", key="home_demo", use_container_width=True):
             st.session_state.selected_mode = "demo"
             st.rerun()
 
     with col2:
-        if st.button("📤 Upload Your Project", key="home_upload", use_container_width=True):
+        if st.button("📤  Upload Your Project", key="home_upload", use_container_width=True):
             st.session_state.selected_mode = "upload"
             st.rerun()
 
@@ -209,41 +394,45 @@ def show_about():
     # About Section
     st.markdown("### About EERB")
     st.markdown("""
-    **Energy Engineering Review Board (EERB)** is an innovative AI platform that transforms how renewable energy projects are validated.
-
-    Traditional project reviews are slow and expensive. Engineers spend weeks manually verifying designs. Issues are discovered late—when fixes cost thousands.
-
-    EERB changes this by providing **instant, systematic preliminary review** using specialized AI agents that work in parallel.
-    """)
-
-    st.markdown("---")
+    <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 24px; border-radius: 12px; border-left: 5px solid #0066cc; margin-bottom: 24px;">
+        <p style="margin: 0; color: #1e293b; line-height: 1.6;">
+            <strong>Energy Engineering Review Board (EERB)</strong> is an innovative AI platform that transforms how renewable energy projects are validated. Traditional reviews are slow and expensive. Engineers spend weeks manually verifying designs. Issues surface late—when fixes cost thousands.
+        </p>
+        <p style="margin: 16px 0 0 0; color: #475569; line-height: 1.6;">
+            EERB changes this by providing <strong>instant, systematic preliminary review</strong> using specialized AI agents that work in parallel, detect conflicts automatically, and deliver traceable results.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
     # Three Pillars
     col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown("""
-        ### ⚡ Speed
-        **2-5 minutes**
-
-        Not weeks. Preliminary review in seconds. Get answers now, not later.
-        """)
+        <div class="metric-card">
+            <h3 style="margin-top: 0; text-align: center; color: #0066cc;">⚡ Speed</h3>
+            <p style="text-align: center; margin: 12px 0; color: #1e293b; font-size: 18px; font-weight: 700;">2-5 minutes</p>
+            <p style="text-align: center; margin: 0; color: #64748b; font-size: 13px;">Not weeks. Preliminary review in minutes. Get answers now.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col2:
         st.markdown("""
-        ### 🎯 Intelligence
-        **6 AI Agents**
-
-        Load analysis, PV design, battery systems, specifications, critical review, and synthesis.
-        """)
+        <div class="metric-card">
+            <h3 style="margin-top: 0; text-align: center; color: #0066cc;">🎯 Intelligence</h3>
+            <p style="text-align: center; margin: 12px 0; color: #1e293b; font-size: 18px; font-weight: 700;">6 AI Agents</p>
+            <p style="text-align: center; margin: 0; color: #64748b; font-size: 13px;">Specialized analysis: Load, PV, Battery, Specs, Critique, Synthesis.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col3:
         st.markdown("""
-        ### 📊 Confidence
-        **Deterministic Math**
-
-        Real calculations, not guesses. Every number is verifiable. Every conclusion is traceable.
-        """)
+        <div class="metric-card">
+            <h3 style="margin-top: 0; text-align: center; color: #0066cc;">📊 Confidence</h3>
+            <p style="text-align: center; margin: 12px 0; color: #1e293b; font-size: 18px; font-weight: 700;">Verified Math</p>
+            <p style="text-align: center; margin: 0; color: #64748b; font-size: 13px;">Every number is verifiable. Every conclusion is traceable.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -331,7 +520,7 @@ def show_about():
 
 def show_demo_project():
     """Display demo project analysis."""
-    st.markdown("## 📊 Demo Project: Commercial Building PV + BESS")
+    st.markdown("## 📊 Demo Project: Commercial Building with Solar + Battery")
 
     # Load demo data
     try:
@@ -344,21 +533,26 @@ def show_demo_project():
     # Project info
     st.markdown("### Project Overview")
     col1, col2, col3, col4 = st.columns(4)
+
     with col1:
-        st.metric("PV Capacity", "500 kW")
+        st.metric("☀️ PV Capacity", "500 kW", "Pre-configured")
     with col2:
-        st.metric("BESS Capacity", "1 MWh")
+        st.metric("🔋 BESS Capacity", "1,000 kWh", "Energy storage")
     with col3:
-        st.metric("BESS Power", "500 kW")
+        st.metric("⚡ BESS Power", "500 kW", "Discharge rate")
     with col4:
-        st.metric("Objective", "Peak Reduction")
+        st.metric("🎯 Objective", "Peak Reduction", "≈30% target")
 
     # Project description
-    st.write("""
-    **Location**: Karachi
-    **Type**: Commercial Building Retrofit
-    **Objective**: Reduce peak demand by approximately 30%
-    """)
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 1px solid #0284c7; padding: 16px; border-radius: 10px; margin: 16px 0;">
+        <p style="margin: 0; color: #0c4a6e;">
+            <strong>Location:</strong> Karachi, Pakistan 🇵🇰<br/>
+            <strong>Type:</strong> Commercial Building Retrofit<br/>
+            <strong>Objective:</strong> Reduce peak demand by approximately 30%
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
     # Run analysis button
     if st.button("▶️ Run Engineering Review", key="demo_run"):
