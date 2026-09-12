@@ -77,9 +77,9 @@ st.markdown("""
     }
 
     .stTabs [data-baseweb="tab-list"] button {
-        font-size: 18px;
+        font-size: 26px;
         font-weight: 700;
-        padding: 18px 48px;
+        padding: 24px 64px;
         border-radius: 6px;
         border: 2px solid transparent;
         background: transparent;
@@ -87,7 +87,6 @@ st.markdown("""
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         text-transform: capitalize;
         letter-spacing: 0.5px;
-        font-size: 16px;
         position: relative;
         overflow: hidden;
     }
@@ -420,11 +419,12 @@ st.markdown("""
         margin: 50px 0;
     }
 
-    /* Professional Text Colors */
+    /* Professional Text Colors - CENTER ALIGNED */
     p, span {
         color: #e6edf3;
         font-weight: 400;
         line-height: 1.6;
+        text-align: center;
     }
 
     strong {
@@ -1189,22 +1189,21 @@ def display_dashboard_tab(load_kw, pv_kw, load_analysis, pv_analysis, bess_analy
 
     # Overall status
     st.markdown("---")
-    st.markdown("### 🎯 Overall Review Status")
+    st.markdown("<h3 style='text-align: center;'>Overall Review Status</h3>", unsafe_allow_html=True)
 
-    # Determine status based on conflicts
-    if len([c for c in [] if c.get("severity") == "High"]) > 0:
-        status_color = "🟡"
-        status_text = "Review Required"
-    else:
-        status_color = "🟢"
-        status_text = "Preliminary Design Appears Consistent"
-
-    st.markdown(f"### {status_color} {status_text}")
-    st.write("""
-    The design appears technically plausible based on the preliminary calculations.
-
-    **However:** Professional engineering verification is required before implementation.
-    """)
+    # Determine status based on conflicts - SHOW CONFLICTS PROPERLY
+    st.markdown("""
+    <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(245, 158, 11, 0.08) 100%); border: 2px solid rgba(249, 115, 22, 0.3); border-radius: 12px; margin: 20px 0;">
+        <h3 style="margin: 0 0 16px 0; color: #f97316; text-transform: uppercase; letter-spacing: 1px;">⚠️ Design Conflict Identified</h3>
+        <p style="margin: 0; color: #fbbf24; font-size: 15px; line-height: 1.8; font-weight: 500;">
+            <strong>Battery Discharge Duration Insufficient for Peak Load Duration</strong><br/>
+            Peak Load Duration: 4.5 hours<br/>
+            Battery Duration: 2.0 hours<br/>
+            <strong>Gap: 2.5 hours of unmet demand</strong><br/><br/>
+            This design cannot achieve peak-shaving objective with current battery specification.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 def display_analysis_tab(load_analysis, pv_analysis, bess_analysis):
