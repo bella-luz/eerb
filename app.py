@@ -84,103 +84,249 @@ st.markdown("""
 
 def main():
     """Main application entry point."""
-    st.title("⚡ Energy Engineering Review Board (EERB)")
-    st.markdown("**AI engineering review before you build.** Preliminary design validation for PV + BESS projects.")
+    # Header
+    st.markdown("""
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; border-bottom: 2px solid #0066cc; padding-bottom: 15px;">
+        <div>
+            <h1 style="margin: 0;">EERB</h1>
+            <p style="margin: 5px 0 0 0; color: #0066cc; font-size: 14px;">Energy Engineering Review Board</p>
+        </div>
+        <p style="text-align: right; margin: 0; font-size: 12px; color: #666;">AI Engineering Review Before You Build</p>
+    </div>
+    """, unsafe_allow_html=True)
 
-    # Sidebar
-    with st.sidebar:
-        st.markdown("## 🔧 Navigation")
-        mode = st.radio(
-            "Choose mode:",
-            ["Home", "Demo Project", "Upload Project"],
-            index=0
-        )
+    # Navigation Tabs
+    tab1, tab2, tab3, tab4 = st.tabs(["Home", "Demo Project", "Upload Project", "About"])
 
-        st.markdown("---")
-        st.markdown("### ℹ️ About EERB")
-        st.info(
-            """
-            EERB provides **preliminary technical review** of proposed renewable-energy projects.
-
-            It is **NOT**:
-            - Professional engineering certification
-            - Safety approval
-            - Regulatory approval
-
-            It **IS**:
-            - A decision-support tool
-            - Early-stage technical validation
-            - Conflict identification
-            """
-        )
-
-    # Main content
-    if mode == "Home":
+    with tab1:
         show_home()
-    elif mode == "Demo Project":
+
+    with tab2:
         show_demo_project()
-    elif mode == "Upload Project":
+
+    with tab3:
         show_upload_project()
+
+    with tab4:
+        show_about()
+
+    # Disclaimer Footer
+    st.markdown("---")
+    st.markdown("""
+    <div style="font-size: 10px; color: #999; text-align: center; margin-top: 20px;">
+    <b>Disclaimer:</b> This AI-assisted preliminary engineering review does not constitute final design, safety certification, regulatory approval, or professional engineering sign-off.
+    Always have results reviewed by licensed professional engineers before implementation.
+    </div>
+    """, unsafe_allow_html=True)
 
 
 def show_home():
-    """Display home page."""
-    st.markdown("## Welcome to EERB")
+    """Display home page with website-like layout."""
+
+    # Hero Section
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #0066cc 0%, #003d99 100%); padding: 60px 20px; border-radius: 10px; color: white; text-align: center; margin-bottom: 40px;">
+        <h1 style="margin: 0; font-size: 48px; font-weight: bold;">Energy Engineering Review Board</h1>
+        <p style="margin: 10px 0 0 0; font-size: 24px; opacity: 0.95;">AI Engineering Review Before You Build</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Value Proposition Section
+    st.markdown("### Why EERB?")
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("""
+        **⚡ Rapid Assessment**
+        - 2-5 minutes vs 2 weeks
+        - Instant preliminary review
+        """)
+
+    with col2:
+        st.markdown("""
+        **🎯 Conflict Detection**
+        - Identifies inconsistencies
+        - Flags technical issues early
+        """)
+
+    with col3:
+        st.markdown("""
+        **📊 Traceable Results**
+        - Source-referenced findings
+        - Clear recommendations
+        """)
+
+    st.markdown("---")
+
+    # How It Works Section
+    st.markdown("### How It Works")
+    st.write("""
+    EERB uses **6 specialized AI agents** that independently analyze your project from different angles:
+
+    1. **Load Analyst** → Examines electricity consumption patterns
+    2. **PV Engineer** → Evaluates solar capacity adequacy
+    3. **BESS Engineer** → Assesses battery storage capability
+    4. **Specification Engineer** → Reviews technical documents
+    5. **Independent Critic** → Challenges conclusions, finds conflicts
+    6. **Lead Engineer** → Synthesizes findings into final report
+
+    All calculations are **deterministic** (verified mathematics) — no AI guessing on critical numbers.
+    """)
+
+    st.markdown("---")
+
+    # Use Case Section
+    st.markdown("### Demo Scenario")
+    st.write("""
+    **500 kW Solar PV + 1 MWh Battery Storage for Commercial Building**
+
+    This demo shows EERB detecting a real technical issue:
+    - Load peak duration: **4.5 hours**
+    - Battery discharge duration: **2 hours**
+    - **Result**: Battery insufficient for stated objective ⚠️
+
+    EERB automatically flags this for professional verification.
+    """)
+
+    st.markdown("---")
+
+    # CTA
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("▶️ Try Demo Project", key="home_demo", use_container_width=True):
+            st.session_state.selected_mode = "demo"
+            st.rerun()
+
+    with col2:
+        if st.button("📤 Upload Your Project", key="home_upload", use_container_width=True):
+            st.session_state.selected_mode = "upload"
+            st.rerun()
+
+
+def show_about():
+    """Display About section with impressive branding."""
+
+    # About Section
+    st.markdown("### About EERB")
+    st.markdown("""
+    **Energy Engineering Review Board (EERB)** is an innovative AI platform that transforms how renewable energy projects are validated.
+
+    Traditional project reviews are slow and expensive. Engineers spend weeks manually verifying designs. Issues are discovered late—when fixes cost thousands.
+
+    EERB changes this by providing **instant, systematic preliminary review** using specialized AI agents that work in parallel.
+    """)
+
+    st.markdown("---")
+
+    # Three Pillars
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("""
+        ### ⚡ Speed
+        **2-5 minutes**
+
+        Not weeks. Preliminary review in seconds. Get answers now, not later.
+        """)
+
+    with col2:
+        st.markdown("""
+        ### 🎯 Intelligence
+        **6 AI Agents**
+
+        Load analysis, PV design, battery systems, specifications, critical review, and synthesis.
+        """)
+
+    with col3:
+        st.markdown("""
+        ### 📊 Confidence
+        **Deterministic Math**
+
+        Real calculations, not guesses. Every number is verifiable. Every conclusion is traceable.
+        """)
+
+    st.markdown("---")
+
+    # The Problem
+    st.markdown("### The Problem We Solve")
+    st.write("""
+    **Energy projects face critical design flaws that emerge too late:**
+
+    - Battery sizing doesn't match load profiles
+    - PV capacity insufficient for stated objectives
+    - Technical inconsistencies go undetected
+    - Expensive engineering work begins on flawed assumptions
+    - No systematic way to track review rationale
+
+    **The cost?** Weeks of delay. $50K+ in rework. Projects abandoned entirely.
+    """)
+
+    st.markdown("---")
+
+    # The Solution
+    st.markdown("### How EERB Works")
+    st.write("""
+    **Multi-Agent AI Review → Conflict Detection → Traceable Report**
+
+    1. You provide: load profile, PV specs, battery specs, project objective
+    2. EERB launches 6 independent AI agents that analyze in parallel
+    3. Agents use deterministic calculations (not guesses) to evaluate your design
+    4. System automatically detects conflicts between agent conclusions
+    5. You get a traceable engineering review with clear recommendations
+
+    **Key Innovation:** The system doesn't just validate—it *challenges* your design by having agents critique each other's work.
+    """)
+
+    st.markdown("---")
+
+    # Target Users
+    st.markdown("### Who Uses EERB?")
 
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown("### 🎯 What is EERB?")
-        st.write("""
-        EERB is a multi-agent AI system that reviews proposed energy projects **before** detailed engineering begins.
-
-        **Key Features:**
-        - 6 specialized AI agents analyze different aspects
-        - Deterministic calculations (no hallucinations)
-        - Automatic conflict detection
-        - Traceable, source-referenced report
-        - Clear identification of missing information
+        st.markdown("""
+        **Renewable Energy EPCs**
+        - Screen projects before detailed engineering
+        - Reduce engineering risk
+        - Accelerate go/no-go decisions
         """)
 
     with col2:
-        st.markdown("### 🚀 Get Started")
-        st.write("""
-        1. **Try the Demo**: Click "Demo Project" to see EERB in action
-        2. **Upload Your Project**: Bring your load data and specs
-        3. **Run Review**: Let agents analyze your design
-        4. **Get Report**: Download findings and recommendations
+        st.markdown("""
+        **Energy Consultants**
+        - Enhance client proposals
+        - Add credibility to preliminary designs
+        - Reduce liability exposure
         """)
 
-    st.markdown("---")
-    st.markdown("### 📋 Demo Scenario")
-    st.write("""
-    The demo project includes a **500 kW PV + 1 MWh BESS** system for a commercial building.
-
-    **The Objective**: Reduce peak demand by 30%
-
-    **The Issue**: The battery duration (2 hours) is shorter than the identified peak period (4.5 hours).
-
-    EERB detects this conflict and flags it for professional verification.
+    st.markdown("""
+    **Project Developers** | **Utilities** | **Engineering Teams**
     """)
 
     st.markdown("---")
-    with st.expander("⚠️ Important Disclaimer"):
-        st.warning("""
-        This system provides an AI-assisted preliminary engineering review.
 
-        **It does NOT constitute:**
-        - Final engineering design
-        - Safety approval
-        - Regulatory compliance certification
-        - Professional engineering sign-off
-        - Grid approval
+    # Technology
+    st.markdown("### Technology Behind EERB")
+    st.write("""
+    - **AI Agents:** OpenAI GPT-3.5-turbo (reasoning layer)
+    - **Calculations:** Python deterministic engine (math layer)
+    - **Interface:** Streamlit (cloud-deployed)
+    - **Architecture:** 5-layer multi-agent orchestration
+    - **Philosophy:** Combine LLM reasoning with verified mathematics
+    """)
 
-        **Always:**
-        - Have results reviewed by licensed professional engineers
-        - Conduct detailed site assessment
-        - Follow all applicable standards and regulations
-        - Perform necessary testing and validation
-        """)
+    st.markdown("---")
+
+    # Call to Action
+    col1, col2, col3 = st.columns(3)
+    with col2:
+        st.markdown("""
+        <div style="text-align: center; padding: 20px; background: #f0f2f6; border-radius: 8px;">
+            <h3 style="margin: 0 0 10px 0;">Ready to Validate Your Project?</h3>
+            <p style="margin: 0; font-size: 14px;">Start with the demo or upload your own project.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
 
 def show_demo_project():
