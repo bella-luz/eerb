@@ -25,7 +25,7 @@
 
   <!-- Layer 1: User Interface (Streamlit) -->
   <rect x="50" y="80" width="1100" height="120" class="box layer-bg-ui"/>
-  <text x="60" y="105" class="layer-title" style="fill: #01579b;">🖥️ USER INTERFACE LAYER</text>
+  <text x="60" y="105" class="layer-title" style="fill: #01579b;">USER INTERFACE LAYER</text>
 
   <rect x="80" y="120" width="220" height="70" class="box" fill="#ffffff"/>
   <text x="190" y="135" text-anchor="middle" class="box-title">Home Page</text>
@@ -53,7 +53,7 @@
 
   <!-- Layer 2: Application Layer -->
   <rect x="50" y="220" width="1100" height="100" class="box layer-bg-app"/>
-  <text x="60" y="240" class="layer-title" style="fill: #e65100;">⚙️ APPLICATION LAYER</text>
+  <text x="60" y="240" class="layer-title" style="fill: #e65100;">APPLICATION LAYER</text>
 
   <rect x="350" y="235" width="500" height="70" class="box" fill="#ffffff"/>
   <text x="600" y="255" text-anchor="middle" class="box-title">Agent Orchestrator</text>
@@ -65,7 +65,7 @@
 
   <!-- Layer 3: Agent Layer -->
   <rect x="50" y="340" width="1100" height="160" class="box layer-bg-agent"/>
-  <text x="60" y="360" class="layer-title" style="fill: #4a148c;">👥 AI AGENT LAYER (6 Specialized Agents)</text>
+  <text x="60" y="360" class="layer-title" style="fill: #4a148c;">AI AGENT LAYER (6 Specialized Agents)</text>
 
   <rect x="70" y="375" width="150" height="110" class="box" fill="#ffffff"/>
   <text x="145" y="395" text-anchor="middle" class="box-title">Lead Engineer</text>
@@ -109,7 +109,7 @@
 
   <!-- Layer 4: Tool Layer -->
   <rect x="50" y="535" width="1100" height="130" class="box layer-bg-tool"/>
-  <text x="60" y="555" class="layer-title" style="fill: #1b5e20;">🛠️ TOOL LAYER (Deterministic Engine)</text>
+  <text x="60" y="555" class="layer-title" style="fill: #1b5e20;">TOOL LAYER (Deterministic Engine)</text>
 
   <rect x="100" y="570" width="180" height="80" class="box" fill="#ffffff"/>
   <text x="190" y="590" text-anchor="middle" class="box-title">Load Calculations</text>
@@ -137,7 +137,7 @@
 
   <!-- Layer 5: Data Layer -->
   <rect x="50" y="705" width="1100" height="120" class="box layer-bg-data"/>
-  <text x="60" y="725" class="layer-title" style="fill: #880e4f;">💾 DATA LAYER</text>
+  <text x="60" y="725" class="layer-title" style="fill: #880e4f;">DATA LAYER</text>
 
   <rect x="120" y="740" width="200" height="70" class="box" fill="#ffffff"/>
   <text x="220" y="760" text-anchor="middle" class="box-title">Demo Data (CSV)</text>
