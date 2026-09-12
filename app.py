@@ -222,7 +222,7 @@ st.markdown("""
         50% { transform: translateY(30px); }
     }
 
-    /* Section Titles - Professional Hierarchy */
+    /* Section Titles - Professional Hierarchy - CENTERED */
     h2 {
         color: #4682b4;
         font-weight: 900;
@@ -232,6 +232,7 @@ st.markdown("""
         text-transform: uppercase;
         letter-spacing: 1.5px;
         text-shadow: none;
+        text-align: center;
     }
 
     h3 {
@@ -242,6 +243,7 @@ st.markdown("""
         font-size: 18px;
         letter-spacing: 0.8px;
         text-transform: uppercase;
+        text-align: center;
     }
 
     h4 {
@@ -477,31 +479,37 @@ st.markdown("""
 
 def main():
     """Main application entry point - Professional Enterprise Interface."""
-    # Professional Header - Clean and Corporate
+    # Professional Logo and Header
     st.markdown("""
-    <div style="text-align: center; margin-bottom: 40px; padding-top: 20px;">
-        <h1 style="margin: 0 0 12px 0; font-size: 48px; font-weight: 900; color: #e8eef5; letter-spacing: -0.5px;">Energy Engineering Review Board</h1>
-        <p style="margin: 0; color: #4682b4; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;">EERB</p>
-        <p style="margin: 16px 0 0 0; color: #a1a7b3; font-size: 15px; font-weight: 400; letter-spacing: 0.3px;">
-            AI-Powered Preliminary Engineering Analysis for Renewable Energy Systems
+    <div style="text-align: center; margin-bottom: 50px; padding-top: 30px;">
+        <div style="font-size: 64px; margin-bottom: 20px; letter-spacing: 4px; font-weight: 900; color: #4682b4;">
+            ═══════════
+        </div>
+        <h1 style="margin: 0 0 8px 0; font-size: 52px; font-weight: 900; color: #e8eef5; letter-spacing: -1px; text-align: center;">EERB</h1>
+        <p style="margin: 0 0 24px 0; color: #4682b4; font-size: 16px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; text-align: center;">Energy Engineering Review Board</p>
+        <div style="font-size: 64px; margin-bottom: 20px; letter-spacing: 4px; font-weight: 900; color: #4682b4;">
+            ═══════════
+        </div>
+        <p style="margin: 0; color: #a1a7b3; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; text-align: center;">
+            AI-Powered Preliminary Engineering Analysis<br/>for Renewable Energy Systems
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-    # Navigation Tabs - Clean and Large, Centered
+    # Navigation Tabs - Clean, Large, Centered - HOME FIRST
     tab1, tab2, tab3, tab4 = st.tabs(["Home", "Demo", "Upload", "Overview"])
 
     with tab1:
-        show_home()
+        show_home()  # HOME TAB FIRST
 
     with tab2:
-        show_demo_project()
+        show_demo_project()  # DEMO
 
     with tab3:
-        show_upload_project()
+        show_upload_project()  # UPLOAD
 
     with tab4:
-        show_about()
+        show_about()  # OVERVIEW
 
     # Premium Disclaimer Footer
     st.markdown("---")
@@ -529,7 +537,7 @@ def show_home():
     """, unsafe_allow_html=True)
 
     # Value Proposition - Professional & Data-Driven
-    st.markdown("### 🎯 Core Advantages")
+    st.markdown("<h3 style='text-align: center;'>Core Advantages</h3>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
 
     with col1:
@@ -568,7 +576,7 @@ def show_home():
     st.markdown("---")
 
     # How It Works - Multi-Agent Architecture
-    st.markdown("### Multi-Agent Engineering System")
+    st.markdown("<h3 style='text-align: center;'>Multi-Agent Engineering System</h3>", unsafe_allow_html=True)
 
     cols = st.columns(3)
 
@@ -599,7 +607,7 @@ def show_home():
     st.markdown("---")
 
     # Use Case Section - Professional Example
-    st.markdown("### 📋 Example: Commercial Building Retrofit")
+    st.markdown("<h3 style='text-align: center;'>Example: Commercial Building Retrofit</h3>", unsafe_allow_html=True)
     st.markdown("""
     <div style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.12) 0%, rgba(6, 182, 212, 0.06) 100%); border: 2px solid rgba(0, 217, 255, 0.4); padding: 28px; border-radius: 14px; margin: 20px 0; backdrop-filter: blur(10px);">
         <h4 style="margin: 0 0 16px 0; color: #00d9ff; text-transform: uppercase; letter-spacing: 1px; font-size: 16px;">Design Analysis Scenario</h4>
@@ -631,7 +639,7 @@ def show_home():
     st.markdown("---")
 
     # Call-to-Action - Professional
-    st.markdown("### 🚀 Begin Your Analysis")
+    st.markdown("<h3 style='text-align: center;'>Begin Your Analysis</h3>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
 
     with col2:
