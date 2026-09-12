@@ -38,17 +38,17 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Enterprise-Grade Design System - Polished & Professional
+# Professional Enterprise Design System - Corporate Grade
 st.markdown("""
     <style>
     * {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
     }
 
-    /* Sophisticated dark background with premium gradient */
+    /* Professional dark background - neutral corporate */
     body, [data-testid="stAppViewContainer"] {
-        background: linear-gradient(180deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
-        color: #e6edf3;
+        background: linear-gradient(180deg, #0f1419 0%, #151d28 50%, #0f1419 100%);
+        color: #e8eef5;
     }
 
     [data-testid="stMainBlockContainer"] {
@@ -57,36 +57,37 @@ st.markdown("""
         margin: 0 auto;
     }
 
-    /* Premium Tab Styling - Larger, Centered, Professional */
+    /* Professional Tab Styling - LARGE, CENTERED, Corporate */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 12px;
-        background: linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(22, 27, 34, 0.95) 100%);
-        padding: 16px 20px;
-        border-radius: 16px;
-        border: 1px solid rgba(0, 217, 255, 0.15);
-        backdrop-filter: blur(30px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 217, 255, 0.08);
+        gap: 20px;
+        background: transparent;
+        padding: 24px 40px;
+        border-radius: 0px;
+        border: none;
+        backdrop-filter: none;
+        box-shadow: none;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
         position: sticky;
         top: 0;
         z-index: 100;
+        border-bottom: 2px solid rgba(70, 130, 180, 0.2);
     }
 
     .stTabs [data-baseweb="tab-list"] button {
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 700;
-        padding: 14px 32px;
-        border-radius: 12px;
+        padding: 18px 48px;
+        border-radius: 6px;
         border: 2px solid transparent;
-        background: rgba(48, 54, 61, 0.5);
-        color: #8b949e;
+        background: transparent;
+        color: #9ca3af;
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        font-size: 13px;
+        text-transform: capitalize;
+        letter-spacing: 0.5px;
+        font-size: 16px;
         position: relative;
         overflow: hidden;
     }
@@ -98,37 +99,37 @@ st.markdown("""
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
         transition: left 0.5s;
     }
 
     .stTabs [data-baseweb="tab-list"] button:hover {
-        color: #00d9ff;
-        background: rgba(0, 217, 255, 0.15);
-        border-color: rgba(0, 217, 255, 0.3);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0, 217, 255, 0.2);
+        color: #4682b4;
+        background: rgba(70, 130, 180, 0.08);
+        border-color: rgba(70, 130, 180, 0.2);
+        transform: translateY(-2px);
     }
 
     .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
-        background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%);
-        color: #0a1628;
-        box-shadow: 0 0 40px rgba(0, 217, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        background: transparent;
+        color: #4682b4;
+        box-shadow: none;
         font-weight: 900;
-        border-color: #00d9ff;
-        transform: translateY(-4px) scale(1.05);
+        border-color: transparent;
+        border-bottom: 4px solid #4682b4;
+        transform: translateY(0px);
     }
 
-    /* Premium Card Styling - Enterprise Grade */
+    /* Professional Card Styling - Corporate Grade */
     .metric-card {
-        background: linear-gradient(135deg, rgba(22, 27, 34, 0.95) 0%, rgba(13, 17, 23, 0.98) 100%);
+        background: linear-gradient(135deg, rgba(22, 27, 34, 0.98) 0%, rgba(15, 20, 28, 0.99) 100%);
         padding: 28px;
-        border-radius: 16px;
+        border-radius: 10px;
         margin: 16px 0;
-        border: 1px solid rgba(0, 217, 255, 0.25);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 217, 255, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.08);
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        backdrop-filter: blur(20px);
+        border: 1px solid rgba(70, 130, 180, 0.2);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        backdrop-filter: blur(10px);
         position: relative;
         overflow: hidden;
     }
@@ -140,15 +141,15 @@ st.markdown("""
         right: -50%;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
-        transition: all 0.6s ease;
+        background: radial-gradient(circle, rgba(70, 130, 180, 0.08) 0%, transparent 70%);
+        transition: all 0.5s ease;
         pointer-events: none;
     }
 
     .metric-card:hover {
-        border-color: rgba(0, 217, 255, 0.6);
-        box-shadow: 0 16px 48px rgba(0, 217, 255, 0.2), 0 0 50px rgba(0, 217, 255, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-        transform: translateY(-8px);
+        border-color: rgba(70, 130, 180, 0.4);
+        box-shadow: 0 12px 32px rgba(70, 130, 180, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+        transform: translateY(-6px);
     }
 
     .metric-card:hover::before {
@@ -156,18 +157,18 @@ st.markdown("""
         right: -20%;
     }
 
-    /* Premium Hero Section - Enterprise Impressive */
+    /* Professional Hero Section - Corporate Grade */
     .hero-section {
-        background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 50%, #0ea5e9 100%);
+        background: linear-gradient(135deg, #4682b4 0%, #36648b 50%, #3b5998 100%);
         padding: 100px 50px;
-        border-radius: 24px;
-        color: #0a1628;
+        border-radius: 12px;
+        color: #ffffff;
         text-align: center;
         margin: 40px 0 60px 0;
-        box-shadow: 0 20px 80px rgba(0, 217, 255, 0.4), 0 0 60px rgba(0, 217, 255, 0.2);
+        box-shadow: 0 12px 48px rgba(70, 130, 180, 0.25);
         position: relative;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .hero-section::before {
@@ -177,7 +178,7 @@ st.markdown("""
         right: -10%;
         width: 400px;
         height: 400px;
-        background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
         border-radius: 50%;
         animation: float 6s ease-in-out infinite;
     }
@@ -189,29 +190,31 @@ st.markdown("""
         left: -15%;
         width: 300px;
         height: 300px;
-        background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
         border-radius: 50%;
         animation: float 8s ease-in-out infinite reverse;
     }
 
     .hero-section h1 {
         margin: 0;
-        font-size: 58px;
+        font-size: 56px;
         font-weight: 900;
-        letter-spacing: -1.5px;
-        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        letter-spacing: -0.5px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         position: relative;
         z-index: 2;
+        color: #ffffff;
     }
 
     .hero-section p {
         margin: 20px 0 0 0;
-        font-size: 22px;
-        opacity: 0.98;
-        font-weight: 600;
+        font-size: 20px;
+        opacity: 0.95;
+        font-weight: 500;
         position: relative;
         z-index: 2;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
+        color: rgba(255, 255, 255, 0.95);
     }
 
     @keyframes float {
@@ -221,50 +224,46 @@ st.markdown("""
 
     /* Section Titles - Professional Hierarchy */
     h2 {
-        color: #00d9ff;
+        color: #4682b4;
         font-weight: 900;
         margin-top: 50px;
         margin-bottom: 32px;
-        font-size: 36px;
+        font-size: 32px;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        text-shadow: 0 0 25px rgba(0, 217, 255, 0.25);
-        background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        letter-spacing: 1.5px;
+        text-shadow: none;
     }
 
     h3 {
-        color: #00d9ff;
+        color: #4682b4;
         font-weight: 800;
         margin-top: 28px;
         margin-bottom: 20px;
-        font-size: 20px;
-        letter-spacing: 1px;
+        font-size: 18px;
+        letter-spacing: 0.8px;
         text-transform: uppercase;
     }
 
     h4 {
-        color: #00d9ff;
+        color: #4682b4;
         font-weight: 700;
-        font-size: 16px;
-        letter-spacing: 0.5px;
+        font-size: 15px;
+        letter-spacing: 0.3px;
     }
 
-    /* Premium Buttons - Advanced Interactions */
+    /* Professional Buttons - Corporate Grade */
     .stButton > button {
-        background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%);
-        color: #0a1628;
-        border: 2px solid #00d9ff;
-        border-radius: 14px;
-        padding: 18px 48px;
-        font-weight: 900;
-        font-size: 13px;
+        background: linear-gradient(135deg, #4682b4 0%, #36648b 100%);
+        color: #ffffff;
+        border: 2px solid #4682b4;
+        border-radius: 8px;
+        padding: 16px 48px;
+        font-weight: 800;
+        font-size: 14px;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 8px 30px rgba(0, 217, 255, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.4), 0 0 40px rgba(0, 217, 255, 0.2);
+        letter-spacing: 1.2px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 6px 24px rgba(70, 130, 180, 0.3);
         cursor: pointer;
         position: relative;
         overflow: hidden;
@@ -277,18 +276,19 @@ st.markdown("""
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.6s;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        transition: left 0.5s;
     }
 
     .stButton > button:hover {
-        transform: translateY(-8px) scale(1.03);
-        box-shadow: 0 16px 50px rgba(0, 217, 255, 0.6), 0 0 60px rgba(0, 217, 255, 0.3);
-        border-color: #f97316;
+        transform: translateY(-6px);
+        box-shadow: 0 12px 36px rgba(70, 130, 180, 0.4);
+        border-color: #5a9bc3;
+        background: linear-gradient(135deg, #5a9bc3 0%, #4682b4 100%);
     }
 
     .stButton > button:active {
-        transform: translateY(-3px) scale(0.98);
+        transform: translateY(-2px);
     }
 
     .stButton > button:hover::before {
@@ -477,29 +477,19 @@ st.markdown("""
 
 def main():
     """Main application entry point - Professional Enterprise Interface."""
-    # Premium Header
+    # Professional Header - Clean and Corporate
     st.markdown("""
-    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 30px; gap: 20px;">
-        <div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-            ⚡
-        </div>
-        <div>
-            <h1 style="margin: 0; font-size: 42px; font-weight: 900; background: linear-gradient(135deg, #e6edf3 0%, #00d9ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -1px;">EERB</h1>
-            <p style="margin: 4px 0 0 0; color: #00d9ff; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;">Energy Engineering Review Board</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div style="text-align: center; margin-bottom: 40px;">
-        <p style="color: #8b949e; font-size: 16px; font-weight: 500; margin: 0; letter-spacing: 0.5px;">
+    <div style="text-align: center; margin-bottom: 40px; padding-top: 20px;">
+        <h1 style="margin: 0 0 12px 0; font-size: 48px; font-weight: 900; color: #e8eef5; letter-spacing: -0.5px;">Energy Engineering Review Board</h1>
+        <p style="margin: 0; color: #4682b4; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;">EERB</p>
+        <p style="margin: 16px 0 0 0; color: #a1a7b3; font-size: 15px; font-weight: 400; letter-spacing: 0.3px;">
             AI-Powered Preliminary Engineering Analysis for Renewable Energy Systems
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-    # Navigation Tabs - Premium Centered Layout
-    tab1, tab2, tab3, tab4 = st.tabs(["🏠 Home", "📊 Demo", "📤 Upload", "ℹ️ Overview"])
+    # Navigation Tabs - Clean and Large, Centered
+    tab1, tab2, tab3, tab4 = st.tabs(["Home", "Demo", "Upload", "Overview"])
 
     with tab1:
         show_home()
@@ -545,8 +535,7 @@ def show_home():
     with col1:
         st.markdown("""
         <div class="metric-card">
-            <div style="font-size: 32px; margin-bottom: 16px;">⚡</div>
-            <h3 style="margin-top: 0; color: #00d9ff; text-transform: uppercase; letter-spacing: 1px; font-size: 16px;">Rapid Analysis</h3>
+            <h3 style="margin-top: 0; color: #4682b4; text-transform: uppercase; letter-spacing: 1px; font-size: 16px;">Rapid Analysis</h3>
             <p style="margin: 12px 0; color: #e6edf3; font-weight: 600; font-size: 18px;">
                 Minutes, not weeks
             </p>
@@ -557,8 +546,7 @@ def show_home():
     with col2:
         st.markdown("""
         <div class="metric-card">
-            <div style="font-size: 32px; margin-bottom: 16px;">🔍</div>
-            <h3 style="margin-top: 0; color: #00d9ff; text-transform: uppercase; letter-spacing: 1px; font-size: 16px;">Conflict Detection</h3>
+            <h3 style="margin-top: 0; color: #4682b4; text-transform: uppercase; letter-spacing: 1px; font-size: 16px;">Conflict Detection</h3>
             <p style="margin: 12px 0; color: #e6edf3; font-weight: 600; font-size: 18px;">
                 Find issues early
             </p>
@@ -569,8 +557,7 @@ def show_home():
     with col3:
         st.markdown("""
         <div class="metric-card">
-            <div style="font-size: 32px; margin-bottom: 16px;">📊</div>
-            <h3 style="margin-top: 0; color: #00d9ff; text-transform: uppercase; letter-spacing: 1px; font-size: 16px;">Verified Results</h3>
+            <h3 style="margin-top: 0; color: #4682b4; text-transform: uppercase; letter-spacing: 1px; font-size: 16px;">Verified Results</h3>
             <p style="margin: 12px 0; color: #e6edf3; font-weight: 600; font-size: 18px;">
                 Transparent methodology
             </p>
@@ -581,33 +568,33 @@ def show_home():
     st.markdown("---")
 
     # How It Works - Multi-Agent Architecture
-    st.markdown("### 🤖 Multi-Agent Engineering System")
+    st.markdown("### Multi-Agent Engineering System")
 
     cols = st.columns(3)
 
     agents = [
-        ("📊 Load Analyst", "Analyzes consumption patterns, peak demands, and duration characteristics"),
-        ("☀️ PV Engineer", "Evaluates solar generation potential and capacity adequacy"),
-        ("🔋 BESS Engineer", "Assesses storage capacity and discharge duration requirements"),
-        ("📋 Spec Engineer", "Reviews technical specifications and system requirements"),
-        ("🤔 Independent Critic", "Challenges conclusions and identifies conflicts"),
-        ("👨‍💼 Lead Engineer", "Synthesizes findings into comprehensive professional report")
+        ("Load Analyst", "Analyzes consumption patterns, peak demands, and duration characteristics"),
+        ("PV Engineer", "Evaluates solar generation potential and capacity adequacy"),
+        ("BESS Engineer", "Assesses storage capacity and discharge duration requirements"),
+        ("Spec Engineer", "Reviews technical specifications and system requirements"),
+        ("Independent Critic", "Challenges conclusions and identifies conflicts"),
+        ("Lead Engineer", "Synthesizes findings into comprehensive professional report")
     ]
 
     for i, (title, desc) in enumerate(agents):
         with cols[i % 3]:
             st.markdown(f"""
             <div class="metric-card">
-                <h4 style="margin: 0 0 12px 0; color: #00d9ff; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">{title}</h4>
+                <h4 style="margin: 0 0 12px 0; color: #4682b4; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">{title}</h4>
                 <p style="margin: 0; font-size: 13px; color: #8b949e; line-height: 1.6;">{desc}</p>
             </div>
             """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.08) 100%); border: 2px solid rgba(16, 185, 129, 0.4); padding: 20px; border-radius: 14px; margin-top: 28px; backdrop-filter: blur(10px);">
-        <p style="margin: 0; color: #10b981; font-size: 14px; line-height: 1.7;"><strong>✓ Deterministic Calculations</strong><br/>All engineering analysis is fully verifiable using mathematical principles. No AI approximation on critical design parameters—every number is traceable.</p>
+    <div style="background: linear-gradient(135deg, rgba(70, 130, 180, 0.12) 0%, rgba(70, 130, 180, 0.06) 100%); border: 2px solid rgba(70, 130, 180, 0.3); padding: 20px; border-radius: 10px; margin-top: 28px; backdrop-filter: blur(10px);">
+        <p style="margin: 0; color: #5a9bc3; font-size: 14px; line-height: 1.7; font-weight: 500;"><strong>Deterministic Calculations</strong><br/>All engineering analysis is fully verifiable using mathematical principles. No AI approximation on critical design parameters—every number is traceable.</p>
     </div>
-    """)
+    """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -923,7 +910,7 @@ def show_upload_project():
     st.markdown("---")
 
     # Load data
-    st.markdown("### 📊 Load Profile Data")
+    st.markdown("### Load Profile Data")
     load_file = st.file_uploader("Upload load CSV (timestamp, load_kw)", type=["csv"], key="load_upload")
 
     load_kw = None
@@ -954,7 +941,7 @@ def show_upload_project():
     st.markdown("---")
 
     # BESS specifications
-    st.markdown("### 🔋 Battery Energy Storage (BESS) Specifications")
+    st.markdown("### Battery Energy Storage (BESS) Specifications")
     col1, col2, col3 = st.columns(3)
     with col1:
         bess_energy_kwh = st.number_input("Energy Capacity (kWh)", min_value=0.0, value=1000.0)
@@ -1127,7 +1114,7 @@ def display_results_dashboard(load_kw, pv_kw, load_analysis, pv_analysis, bess_a
 
     # Tabs
     tab1, tab2, tab3, tab4, tab5 = st.tabs(
-        ["📊 Dashboard", "🔍 Analysis", "⚠️ Findings", "👥 Agents", "📄 Report"]
+        ["Dashboard", "Analysis", "Findings", "Agents", "Report"]
     )
 
     with tab1:
@@ -1266,7 +1253,7 @@ def display_findings_tab(critic_result, conflicts):
 def display_agents_tab(agent_results, critic_result, lead_result):
     """Display individual agent findings."""
 
-    st.markdown("### 👥 Agent Results")
+    st.markdown("### Agent Results")
 
     for agent_name, result in agent_results.items():
         with st.expander(f"**{agent_name}**"):
