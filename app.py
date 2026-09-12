@@ -38,16 +38,16 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Dark Mode AI/Robotic Design - Modern Engineering Aesthetic
+# Premium AI/Robotic Design - Professional SaaS Aesthetic
 st.markdown("""
     <style>
     * {
         font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     }
 
-    /* Dark background with gradient */
+    /* Dark background with premium gradient */
     body, [data-testid="stAppViewContainer"] {
-        background: linear-gradient(135deg, #0a1628 0%, #1e293b 50%, #162a47 100%);
+        background: linear-gradient(180deg, #0a1628 0%, #1a2744 40%, #0f1929 100%);
         color: #e2e8f0;
     }
 
@@ -55,40 +55,41 @@ st.markdown("""
         background: transparent;
     }
 
-    /* Tab styling - Web-like */
+    /* Tab styling - Premium web-like */
     .stTabs [data-baseweb="tab-list"] {
         gap: 0px;
-        background: rgba(15, 23, 42, 0.8);
-        padding: 4px;
-        border-radius: 10px 10px 0 0;
-        border-bottom: 2px solid #00d9ff;
-        backdrop-filter: blur(10px);
+        background: rgba(15, 23, 42, 0.95);
+        padding: 8px 12px;
+        border-radius: 14px 14px 0 0;
+        border-bottom: 3px solid #00d9ff;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 -4px 20px rgba(0, 217, 255, 0.15);
     }
 
     .stTabs [data-baseweb="tab-list"] button {
-        font-size: 14px;
-        font-weight: 600;
-        padding: 12px 24px;
-        border-radius: 8px 8px 0 0;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 14px 28px;
+        border-radius: 10px 10px 0 0;
         border: none;
         background: transparent;
         color: #94a3b8;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 12px;
+        letter-spacing: 1.2px;
+        font-size: 11px;
     }
 
     .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
         background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%);
         color: #0a1628;
-        box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
-        font-weight: 700;
+        box-shadow: 0 0 30px rgba(0, 217, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        font-weight: 800;
     }
 
     .stTabs [data-baseweb="tab-list"] button:hover {
         color: #00d9ff;
-        background: rgba(0, 217, 255, 0.1);
+        background: rgba(0, 217, 255, 0.15);
     }
 
     /* Card styling - Dark theme */
@@ -169,26 +170,64 @@ st.markdown("""
         letter-spacing: 0.5px;
     }
 
-    /* Buttons - Futuristic */
+    /* Buttons - Premium SaaS style */
     .stButton > button {
         background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%);
         color: #0a1628;
-        border: 2px solid transparent;
-        border-radius: 10px;
-        padding: 14px 32px;
-        font-weight: 700;
-        font-size: 14px;
+        border: 2px solid #00d9ff;
+        border-radius: 12px;
+        padding: 16px 40px;
+        font-weight: 800;
+        font-size: 13px;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        letter-spacing: 1.5px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 25px rgba(0, 217, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
         cursor: pointer;
+        position: relative;
     }
 
     .stButton > button:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 0 40px rgba(0, 217, 255, 0.6);
-        border-color: rgba(249, 115, 22, 0.5);
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 0 50px rgba(0, 217, 255, 0.7), 0 10px 40px rgba(0, 217, 255, 0.3);
+        border-color: #f97316;
+    }
+
+    .stButton > button:active {
+        transform: translateY(-2px);
+    }
+
+    /* File uploader styling */
+    .stFileUploadDropzone {
+        border: 2px dashed #00d9ff !important;
+        border-radius: 12px !important;
+        background: rgba(0, 217, 255, 0.05) !important;
+    }
+
+    .stFileUploadDropzone:hover {
+        background: rgba(0, 217, 255, 0.1) !important;
+        border-color: #f97316 !important;
+    }
+
+    /* Loading animation */
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 255, 0.4); }
+        50% { box-shadow: 0 0 40px rgba(0, 217, 255, 0.8); }
+    }
+
+    .loading-spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(0, 217, 255, 0.2);
+        border-top: 3px solid #00d9ff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
     }
 
     /* Info/Alert boxes */
@@ -269,17 +308,12 @@ st.markdown("""
 
 def main():
     """Main application entry point."""
-    # Header - Clean, modern, AI-theme
+    # Professional centered header - Premium design
     st.markdown("""
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 50px; padding: 30px 0; border-bottom: 2px solid rgba(0, 217, 255, 0.3);">
-        <div>
-            <h1 style="margin: 0; font-size: 36px; font-weight: 900; background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -1px;">EERB</h1>
-            <p style="margin: 8px 0 0 0; color: #00d9ff; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Energy Engineering Review</p>
-        </div>
-        <div style="text-align: right;">
-            <p style="margin: 0; font-size: 14px; color: #00d9ff; font-weight: 600;">AI-Powered Engineering Analysis</p>
-            <p style="margin: 4px 0 0 0; font-size: 11px; color: #94a3b8; letter-spacing: 0.5px;">Before You Build</p>
-        </div>
+    <div style="text-align: center; margin-bottom: 60px; padding: 50px 20px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(6, 182, 212, 0.02) 100%); border-radius: 20px; border: 1px solid rgba(0, 217, 255, 0.15); box-shadow: 0 0 40px rgba(0, 217, 255, 0.08);">
+        <h1 style="margin: 0 0 16px 0; font-size: 56px; font-weight: 900; background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 50%, #0ea5e9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -2px; text-shadow: 0 0 30px rgba(0, 217, 255, 0.1);">EERB</h1>
+        <p style="margin: 0 0 24px 0; color: #00d9ff; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">Energy Engineering Review Board</p>
+        <p style="margin: 0; font-size: 18px; color: #cbd5e1; font-weight: 300; letter-spacing: 0.5px;">AI-Powered Engineering Analysis Before You Build</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -763,12 +797,31 @@ def run_engineering_review(project_name, project_type, location, objective,
     """Run the full engineering review workflow."""
 
     st.markdown("---")
-    st.markdown("## ⚙️ Running Engineering Review...")
 
-    # Progress placeholder
+    # Professional analysis header
+    st.markdown("""
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2 style="color: #00d9ff; text-transform: uppercase; letter-spacing: 2px; font-size: 20px; margin: 0;">Analyzing Your Project</h2>
+        <p style="color: #94a3b8; font-size: 13px; margin-top: 8px;">Multi-agent AI system is running engineering analysis...</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Progress placeholder with better styling
     progress_container = st.container()
 
-    # Calculate basic metrics
+    # Calculate basic metrics with animated status
+    with progress_container:
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            st.markdown("""
+            <div style="background: rgba(0, 217, 255, 0.05); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 12px; padding: 20px; text-align: center;">
+                <div style="animation: pulse-glow 1.5s ease-in-out infinite; display: inline-block;">
+                    <div style="font-size: 24px; margin-bottom: 8px;">⚙️</div>
+                    <p style="color: #00d9ff; font-weight: 700; font-size: 13px; margin: 0;">PROCESSING...</p>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
     load_analysis = analyze_load_profile(load_kw)
     peak_load_kw = load_analysis["peak_demand_kw"]
     avg_load_kw = load_analysis["average_demand_kw"]
@@ -779,7 +832,6 @@ def run_engineering_review(project_name, project_type, location, objective,
     if pv_kw is not None:
         daily_pv_kwh = pv_kw.sum() * 0.25
     else:
-        # Assume 18% capacity factor for Karachi
         daily_pv_kwh = pv_capacity_kw * 24 * 0.18
 
     pv_analysis = analyze_pv(pv_capacity_kw, daily_pv_kwh, peak_load_kw,
@@ -789,19 +841,27 @@ def run_engineering_review(project_name, project_type, location, objective,
     bess_analysis = analyze_bess(bess_energy_kwh, bess_power_kw, peak_load_kw,
                                 peak_duration, bess_efficiency)
 
-    # Show progress
+    # Show completion status with better styling
     with progress_container:
-        st.write("✓ Load Analysis")
-        st.write("✓ PV Analysis")
-        st.write("✓ BESS Analysis")
-
-        # Agent orchestration
-        st.write("✓ Load Analyst")
-        st.write("✓ PV Engineer")
-        st.write("✓ BESS Engineer")
-        st.write("✓ Specification Engineer")
-        st.write("✓ Independent Critic")
-        st.write("✓ Lead Engineer")
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(16, 185, 129, 0.04) 100%); border: 1px solid rgba(0, 217, 255, 0.15); border-radius: 12px; padding: 20px; margin-top: 20px;">
+            <p style="color: #00d9ff; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 12px 0;">Analysis Complete</p>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                <div style="padding: 10px; background: rgba(0, 217, 255, 0.05); border-radius: 8px; border-left: 3px solid #10b981;">
+                    <p style="color: #10b981; font-weight: 700; font-size: 11px; margin: 0;">✓ Load Analysis</p>
+                </div>
+                <div style="padding: 10px; background: rgba(0, 217, 255, 0.05); border-radius: 8px; border-left: 3px solid #10b981;">
+                    <p style="color: #10b981; font-weight: 700; font-size: 11px; margin: 0;">✓ PV Analysis</p>
+                </div>
+                <div style="padding: 10px; background: rgba(0, 217, 255, 0.05); border-radius: 8px; border-left: 3px solid #10b981;">
+                    <p style="color: #10b981; font-weight: 700; font-size: 11px; margin: 0;">✓ BESS Analysis</p>
+                </div>
+                <div style="padding: 10px; background: rgba(0, 217, 255, 0.05); border-radius: 8px; border-left: 3px solid #10b981;">
+                    <p style="color: #10b981; font-weight: 700; font-size: 11px; margin: 0;">✓ AI Agents</p>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
     # Build context for agents
     context = {
