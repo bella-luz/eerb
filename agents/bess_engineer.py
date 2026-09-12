@@ -1,5 +1,9 @@
 """BESS Engineer Agent - Analyzes battery storage system."""
 from typing import Dict, Any
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from calculations.battery import analyze_bess
 from .orchestrator import Agent, call_llm
 

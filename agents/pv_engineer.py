@@ -1,6 +1,10 @@
 """PV Engineer Agent - Analyzes PV adequacy."""
 from typing import Dict, Any
 import pandas as pd
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from calculations.pv import analyze_pv
 from .orchestrator import Agent, call_llm
 

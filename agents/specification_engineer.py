@@ -1,5 +1,9 @@
 """Specification Engineer Agent - Reviews technical documents."""
 from typing import Dict, Any
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from utils.rag import SimpleRAG, extract_specifications_from_text
 from .orchestrator import Agent, call_llm
 

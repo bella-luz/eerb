@@ -10,6 +10,11 @@ from datetime import datetime
 import json
 import os
 
+# Add project root to path
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 # Import utilities
 from utils.data_processor import load_demo_data, align_timeseries, process_load_csv, process_pv_csv
 from calculations.load import analyze_load_profile, calculate_peak_duration
