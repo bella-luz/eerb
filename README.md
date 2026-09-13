@@ -338,4 +338,4 @@ This project is part of the Pak Angels HEC-NCAEC Generative & Agentic AI Trainin
 
 ---
 
-**Built with ❤️ for the Pak Angels Hackathon | Sep 2026**
+**Built for the Pak Angels HEC-NCAEC Generative & Agentic AI Training, Cohort 11 Mid-Term Hackathon | Sep 2026****

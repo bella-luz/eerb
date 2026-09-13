@@ -256,10 +256,9 @@ Deployment:      Streamlit Cloud
 
 **"AI engineering review before you build."**
 
-📱 **Contact:** Bella Luz  
-📧 **Email:** i247813@isb.nu.edu.pk  
-🌐 **GitHub:** bella-luz/eerb  
-🚀 **Live Demo:** https://eerb-demo.streamlit.app
+🚀 **Live Demo:** https://eerb-demo.streamlit.app  
+📧 **Questions?** Contact the development team  
+🌐 **GitHub:** eerb-project
 
 ---
 

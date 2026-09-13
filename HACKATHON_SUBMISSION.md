@@ -4,7 +4,6 @@
 
 **Tagline:** "AI engineering review before you build."
 
-**Team:** Bella Luz (bella-luz on GitHub)  
 **Hackathon:** Pak Angels HEC-NCAEC Generative & Agentic AI Training, Cohort 11 Mid-Term Hackathon  
 **Deadline:** Sunday, September 13, 2026, 11:59 PM PKT  
 
@@ -169,7 +168,7 @@ gh repo create eerb --public --source=. --remote=origin --push
 6. Then run:
    ```bash
    cd "C:\Users\dandy\Desktop\Iqra\AI training\Mid Hackathon"
-   git remote add origin https://github.com/bella-luz/eerb.git
+   git remote add origin https://github.com/your-username/eerb.git
    git branch -M main
    git push -u origin main
    ```
@@ -179,7 +178,7 @@ gh repo create eerb --public --source=. --remote=origin --push
 1. Go to https://streamlit.io/cloud
 2. Sign in with GitHub
 3. Click "New app"
-   - Repository: `bella-luz/eerb`
+   - Repository: `your-username/eerb`
    - Branch: `main`
    - File: `app.py`
 4. Click "Deploy"
@@ -243,7 +242,7 @@ pandoc PRESENTATION_SLIDES.md -o PRESENTATION_SLIDES.pdf
 According to hackathon brief, you need to submit by **Sunday 11:59 PM PKT**:
 
 1. ✅ **Code** → GitHub repo link
-   - https://github.com/bella-luz/eerb
+   - https://github.com/your-username/eerb
 
 2. ✅ **Live Deployment** → Streamlit Cloud link
    - https://eerb.streamlit.app (or similar)
@@ -337,11 +336,9 @@ According to hackathon brief, you need to submit by **Sunday 11:59 PM PKT**:
 
 ---
 
-## 📞 Submission Contacts
+## 📞 Submission Contact
 
-**Team Member:** Bella Luz  
-**GitHub:** https://github.com/bella-luz  
-**Email:** i247813@isb.nu.edu.pk  
+For questions about this project, please refer to the GitHub repository documentation and README file.  
 
 ---
 
