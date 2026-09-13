@@ -551,14 +551,14 @@ def show_home():
     with col_right:
         # Display the hero image with professional styling
         st.markdown("""
-        <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%); border-radius: 16px; padding: 20px; border: 1px solid rgba(20, 200, 200, 0.3); overflow: hidden;">
+        <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.08) 0%, rgba(147, 51, 234, 0.08) 100%); border-radius: 16px; padding: 15px; border: 1px solid rgba(20, 200, 200, 0.25); overflow: hidden; box-shadow: 0 8px 32px rgba(20, 200, 200, 0.1);">
         """, unsafe_allow_html=True)
 
         try:
-            st.image("Hacathon info.jpeg", use_column_width=True)
-        except:
+            st.image("EERB Cocept Image.jpg", use_column_width=True)
+        except FileNotFoundError:
             try:
-                st.image("human_ai_collaboration.svg", use_column_width=True)
+                st.image("Hacathon info.jpeg", use_column_width=True)
             except:
                 st.markdown("""
                 <div style="text-align: center; color: #14c8c8; font-size: 64px; padding: 60px 20px;">⚡</div>
