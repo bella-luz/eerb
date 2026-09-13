@@ -120,16 +120,17 @@ class AgentOrchestrator:
             battery_duration = bess_result.get("key_metrics", {}).get("battery_duration_hours", 0)
 
             if peak_duration > 0 and battery_duration > 0:
-                if battery_duration < peak_duration * 0.8:
+                if battery_duration < peak_duration:
+                    gap = peak_duration - battery_duration
                     conflicts.append({
-                        "issue": "Battery Duration Insufficient",
+                        "issue": "Battery Duration Insufficient for Peak Load",
                         "agent_1": "Load Analyst",
                         "agent_1_statement": f"Peak duration: {peak_duration:.2f} hours",
                         "agent_2": "BESS Engineer",
                         "agent_2_statement": f"Battery duration: {battery_duration:.2f} hours",
                         "severity": "High",
-                        "explanation": f"Battery can only support {battery_duration:.2f} hours of discharge, "
-                                     f"but peak lasts {peak_duration:.2f} hours."
+                        "explanation": f"Battery can discharge for {battery_duration:.2f} hours, but peak demand lasts {peak_duration:.2f} hours. "
+                                     f"Gap: {gap:.2f} hours of unmet demand. Battery cannot support full peak-shaving objective."
                     })
 
         self.conflicts = conflicts
