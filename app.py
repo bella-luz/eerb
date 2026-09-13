@@ -520,13 +520,72 @@ def main():
 def show_home():
     """Display home page with website-like layout - Professional Enterprise."""
 
-    # Premium Hero Section
-    st.markdown("""
-    <div class="hero-section">
-        <h1>Energy Engineering Review Board</h1>
-        <p>AI-Powered Preliminary Engineering Analysis in Minutes</p>
-    </div>
-    """, unsafe_allow_html=True)
+    # IMPROVED HERO SECTION WITH IMAGE
+    col_left, col_right = st.columns([1.2, 1], gap="large")
+
+    with col_left:
+        st.markdown("""
+        <div style="padding: 40px 0;">
+            <h2 style="font-size: 56px; font-weight: 800; line-height: 1.1; margin: 0 0 24px 0; color: #ffffff;">AI Engineering Review Before You Build</h2>
+            <p style="font-size: 16px; line-height: 1.8; color: #b8c5d6; margin: 0 0 40px 0;">Preliminary technical validation for renewable energy projects in minutes, not weeks. Detect design conflicts automatically with our 6-agent AI system.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_btn1, col_btn2 = st.columns(2, gap="small")
+        with col_btn1:
+            if st.button("View Demo Project", key="hero_demo", use_container_width=True):
+                st.session_state.selected_tab = "Demo"
+                st.rerun()
+        with col_btn2:
+            if st.button("Upload Your Project", key="hero_upload", use_container_width=True):
+                st.session_state.selected_tab = "Upload"
+                st.rerun()
+
+    with col_right:
+        # Display the SVG image
+        with open("human_ai_collaboration.svg", "r") as f:
+            svg_content = f.read()
+        st.markdown(f"""
+        <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%); border-radius: 16px; padding: 20px; border: 1px solid rgba(20, 200, 200, 0.2); min-height: 400px; display: flex; align-items: center; justify-content: center;">
+            {svg_content}
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("")
+    st.markdown("---")
+    st.markdown("")
+
+    # STATISTICS
+    st.markdown("<h3 style='text-align: center; margin-bottom: 40px;'>Why EERB Works</h3>", unsafe_allow_html=True)
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("""
+        <div style="text-align: center; padding: 30px; background: rgba(20, 200, 200, 0.05); border-radius: 12px;">
+            <div style="font-size: 48px; font-weight: 800; color: #14c8c8; margin-bottom: 8px;">2-5</div>
+            <div style="font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #98a8b8; font-weight: 600;">Minutes to Review</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("""
+        <div style="text-align: center; padding: 30px; background: rgba(20, 200, 200, 0.05); border-radius: 12px;">
+            <div style="font-size: 48px; font-weight: 800; color: #14c8c8; margin-bottom: 8px;">6</div>
+            <div style="font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #98a8b8; font-weight: 600;">AI Agents Analyzing</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col3:
+        st.markdown("""
+        <div style="text-align: center; padding: 30px; background: rgba(20, 200, 200, 0.05); border-radius: 12px;">
+            <div style="font-size: 48px; font-weight: 800; color: #14c8c8; margin-bottom: 8px;">100%</div>
+            <div style="font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #98a8b8; font-weight: 600;">Deterministic Math</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("")
+    st.markdown("---")
+    st.markdown("")
 
     # Value Proposition - Professional & Data-Driven
     st.markdown("<h3 style='text-align: center;'>Core Advantages</h3>", unsafe_allow_html=True)
