@@ -542,14 +542,16 @@ def show_home():
                 st.rerun()
 
     with col_right:
-        # Display the SVG image
-        with open("human_ai_collaboration.svg", "r") as f:
-            svg_content = f.read()
-        st.markdown(f"""
-        <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%); border-radius: 16px; padding: 20px; border: 1px solid rgba(20, 200, 200, 0.2); min-height: 400px; display: flex; align-items: center; justify-content: center;">
-            {svg_content}
-        </div>
-        """, unsafe_allow_html=True)
+        # Display the SVG image using st.image (best way to render SVG in Streamlit)
+        try:
+            st.image("human_ai_collaboration.svg", use_column_width=True)
+        except:
+            # Fallback: display placeholder if SVG not found
+            st.markdown("""
+            <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%); border-radius: 16px; padding: 60px 20px; border: 1px solid rgba(20, 200, 200, 0.2); text-align: center; color: #14c8c8; font-size: 48px;">
+                ⚡
+            </div>
+            """, unsafe_allow_html=True)
 
     st.markdown("")
     st.markdown("---")
