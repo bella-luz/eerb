@@ -490,20 +490,27 @@ st.markdown("""
 
 def main():
     """Main application entry point - Professional Enterprise Interface."""
-    # Professional header - Full name at top, EERB logo on side
-    st.markdown("""
-    <div style="display: flex; align-items: flex-start; justify-content: space-between; padding: 30px 40px 30px 40px; border-bottom: 2px solid rgba(20, 200, 200, 0.15); gap: 40px;">
-        <div style="flex: 1;">
-            <h1 style="margin: 0; font-size: 64px; font-weight: 900; color: #ffffff; line-height: 1.1; letter-spacing: -1px;">
+    # Professional header - Full name center, EERB logo on right
+    col_header_left, col_header_logo = st.columns([5, 1], gap="large")
+
+    with col_header_left:
+        st.markdown("""
+        <div style="padding: 20px 0;">
+            <h1 style="margin: 0; font-size: 60px; font-weight: 900; color: #ffffff; line-height: 1.15; letter-spacing: -1px;">
                 Energy Engineering<br/>Review Board
             </h1>
         </div>
-        <div style="text-align: center; min-width: 120px;">
-            <div style="font-size: 52px; font-weight: 900; color: #14c8c8; letter-spacing: -1px;">E</div>
-            <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #14c8c8; font-weight: 700; margin-top: 4px;">ERB</div>
+        """, unsafe_allow_html=True)
+
+    with col_header_logo:
+        st.markdown("""
+        <div style="text-align: center; padding: 30px 20px;">
+            <div style="font-size: 48px; font-weight: 900; color: #14c8c8; letter-spacing: -1px;">E</div>
+            <div style="font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #14c8c8; font-weight: 800; margin-top: 6px;">ERB</div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
+
+    st.markdown("<div style='height: 2px; background: linear-gradient(90deg, transparent, rgba(20, 200, 200, 0.3), transparent); margin: 0;'></div>", unsafe_allow_html=True)
 
     # Navigation Tabs - MASSIVE & Professional
     tab1, tab2, tab3, tab4 = st.tabs(["Home", "Demo", "Upload", "Overview"])
