@@ -554,15 +554,31 @@ def show_home():
         <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.08) 0%, rgba(147, 51, 234, 0.08) 100%); border-radius: 16px; padding: 15px; border: 1px solid rgba(20, 200, 200, 0.25); overflow: hidden; box-shadow: 0 8px 32px rgba(20, 200, 200, 0.1);">
         """, unsafe_allow_html=True)
 
-        try:
-            st.image("EERB Cocept Image.jpg", use_column_width=True)
-        except FileNotFoundError:
-            try:
-                st.image("Hacathon info.jpeg", use_column_width=True)
-            except:
-                st.markdown("""
-                <div style="text-align: center; color: #14c8c8; font-size: 64px; padding: 60px 20px;">⚡</div>
-                """, unsafe_allow_html=True)
+        # Try to load the concept image with proper path handling
+        import os
+        app_dir = os.path.dirname(os.path.abspath(__file__))
+
+        image_candidates = [
+            os.path.join(app_dir, "EERB Cocept Image.jpg"),
+            os.path.join(app_dir, "EERB Concept Image.jpg"),
+            "EERB Cocept Image.jpg",
+            "Hacathon info.jpeg"
+        ]
+
+        image_found = False
+        for image_path in image_candidates:
+            if os.path.exists(image_path):
+                try:
+                    st.image(image_path, use_column_width=True)
+                    image_found = True
+                    break
+                except:
+                    continue
+
+        if not image_found:
+            st.markdown("""
+            <div style="text-align: center; color: #14c8c8; font-size: 64px; padding: 60px 20px;">⚡</div>
+            """, unsafe_allow_html=True)
 
         st.markdown("</div>", unsafe_allow_html=True)
 
