@@ -543,22 +543,6 @@ def show_home():
         </div>
         """, unsafe_allow_html=True)
 
-        # Call-to-action buttons
-        st.markdown("<br>", unsafe_allow_html=True)
-        col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 0.5], gap="small")
-        with col_btn1:
-            st.markdown("""
-            <a href="#" style="display: block; background: linear-gradient(135deg, #14c8c8 0%, #0fa9a9 100%); color: #0a0e1a; padding: 18px 32px; border-radius: 12px; text-align: center; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; font-size: 15px; transition: all 0.3s;">
-                View Demo Project
-            </a>
-            """, unsafe_allow_html=True)
-        with col_btn2:
-            st.markdown("""
-            <a href="#" style="display: block; background: rgba(147, 51, 234, 0.2); color: #b8c5d6; padding: 18px 32px; border-radius: 12px; text-align: center; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; font-size: 15px; border: 2px solid rgba(147, 51, 234, 0.3); transition: all 0.3s;">
-                Upload Your Project
-            </a>
-            """, unsafe_allow_html=True)
-
     with col_right:
         # Display the concept image using PIL for better reliability
         import os
