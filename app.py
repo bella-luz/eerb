@@ -548,13 +548,27 @@ def show_home():
                 st.rerun()
 
     with col_right:
-        # Display the concept image
+        # Display the concept image using PIL for better reliability
         import os
-        image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "eerb-concept.jpg")
+        from PIL import Image
 
-        if os.path.exists(image_path):
-            st.image(image_path, use_column_width=True, caption="Multi-Agent Engineering System")
-        else:
+        image_candidates = [
+            "eerb-concept.jpg",
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "eerb-concept.jpg"),
+        ]
+
+        image_found = False
+        for img_path in image_candidates:
+            try:
+                if os.path.exists(img_path):
+                    img = Image.open(img_path)
+                    st.image(img, use_column_width=True, caption="Multi-Agent Engineering System")
+                    image_found = True
+                    break
+            except Exception as e:
+                continue
+
+        if not image_found:
             st.markdown("""
             <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%); border-radius: 16px; padding: 100px 20px; border: 2px solid rgba(20, 200, 200, 0.3); text-align: center; color: #14c8c8; font-size: 80px;">⚡</div>
             """, unsafe_allow_html=True)
