@@ -57,44 +57,52 @@ st.markdown("""
         margin: 0 auto;
     }
 
-    /* Modern Tab Styling - EXTRA LARGE, CENTERED, Professional */
+    /* MASSIVE Tab Styling - Ultra Large & Prominent */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 50px;
-        background: rgba(10, 20, 40, 0.7);
-        padding: 50px 40px;
+        gap: 80px;
+        background: linear-gradient(180deg, rgba(10, 20, 40, 0.8) 0%, rgba(15, 30, 50, 0.7) 100%);
+        padding: 60px 60px;
         border-radius: 0px;
         border: none;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin-bottom: 100px;
+        margin-bottom: 120px;
         position: sticky;
         top: 0;
         z-index: 100;
-        border-bottom: 3px solid rgba(20, 200, 200, 0.25);
+        border-bottom: 4px solid rgba(20, 200, 200, 0.4);
     }
 
     .stTabs [data-baseweb="tab-list"] button {
-        font-size: 22px;
-        font-weight: 800;
-        padding: 20px 60px;
-        border-radius: 12px;
-        border: 2px solid transparent;
-        background: rgba(20, 200, 200, 0.1);
-        color: #a0aab8;
-        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        font-size: 28px;
+        font-weight: 900;
+        padding: 28px 80px;
+        border-radius: 16px;
+        border: 3px solid transparent;
+        background: rgba(20, 200, 200, 0.12);
+        color: #b8c5d6;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         text-transform: uppercase;
-        letter-spacing: 1.6px;
+        letter-spacing: 2px;
         position: relative;
         overflow: hidden;
-        min-width: 200px;
+        min-width: 240px;
         text-align: center;
-        height: 60px;
+        height: 90px;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 8px 20px rgba(20, 200, 200, 0.1);
+    }
+
+    .stTabs [data-baseweb="tab-list"] button:hover {
+        background: rgba(20, 200, 200, 0.2);
+        border-color: rgba(20, 200, 200, 0.4);
+        box-shadow: 0 12px 30px rgba(20, 200, 200, 0.2);
+        transform: translateY(-3px);
     }
 
     .stTabs [data-baseweb="tab-list"] button::before {
@@ -482,19 +490,14 @@ st.markdown("""
 
 def main():
     """Main application entry point - Professional Enterprise Interface."""
-    # Professional Header - Clean & Simple
+    # Minimal branding header
     st.markdown("""
-    <div style="text-align: center; margin-bottom: 60px; padding: 40px 20px;">
-        <h1 style="margin: 0 0 12px 0; font-size: 64px; font-weight: 900; color: #ffffff; letter-spacing: -1px;">EERB</h1>
-        <p style="margin: 0 0 28px 0; color: #14c8c8; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;">Energy Engineering Review Board</p>
-        <div style="width: 100px; height: 3px; background: linear-gradient(90deg, transparent, #14c8c8, transparent); margin: 0 auto 28px auto;"></div>
-        <p style="margin: 0; color: #b8c5d6; font-size: 15px; font-weight: 400; max-width: 700px; margin-left: auto; margin-right: auto;">
-            AI-Powered Preliminary Engineering Analysis for Renewable Energy Systems
-        </p>
+    <div style="text-align: center; padding: 20px 0 10px 0; border-bottom: 2px solid rgba(20, 200, 200, 0.1);">
+        <h1 style="margin: 0; font-size: 48px; font-weight: 900; color: #ffffff; letter-spacing: -1px;">EERB</h1>
     </div>
     """, unsafe_allow_html=True)
 
-    # Navigation Tabs - Clean, Large, Centered - HOME FIRST
+    # Navigation Tabs - MASSIVE & Professional
     tab1, tab2, tab3, tab4 = st.tabs(["Home", "Demo", "Upload", "Overview"])
 
     with tab1:
@@ -531,21 +534,27 @@ def show_home():
 
     with col_left:
         st.markdown("""
-        <div style="padding: 40px 0;">
-            <h2 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin: 0 0 28px 0; color: #ffffff; text-align: left;">AI Engineering Review Before You Build</h2>
-            <p style="font-size: 16px; line-height: 1.8; color: #b8c5d6; margin: 0 0 40px 0; text-align: left;">Preliminary technical validation for renewable energy projects in minutes, not weeks. Detect design conflicts automatically with our 6-agent AI system.</p>
+        <div style="padding: 60px 20px;">
+            <h2 style="font-size: 56px; font-weight: 800; line-height: 1.15; margin: 0 0 32px 0; color: #ffffff;">AI Engineering Review Before You Build</h2>
+            <p style="font-size: 18px; line-height: 1.9; color: #b8c5d6; margin: 0; font-weight: 400;">Preliminary technical validation for renewable energy projects in <strong style="color: #14c8c8;">minutes, not weeks</strong>. Detect design conflicts automatically with our 6-agent AI system.</p>
         </div>
         """, unsafe_allow_html=True)
 
-        col_btn1, col_btn2 = st.columns(2, gap="small")
+        # Call-to-action buttons
+        st.markdown("<br>", unsafe_allow_html=True)
+        col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 0.5], gap="small")
         with col_btn1:
-            if st.button("View Demo Project", key="hero_demo", use_container_width=True):
-                st.session_state.selected_tab = "Demo"
-                st.rerun()
+            st.markdown("""
+            <a href="#" style="display: block; background: linear-gradient(135deg, #14c8c8 0%, #0fa9a9 100%); color: #0a0e1a; padding: 18px 32px; border-radius: 12px; text-align: center; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; font-size: 15px; transition: all 0.3s;">
+                View Demo Project
+            </a>
+            """, unsafe_allow_html=True)
         with col_btn2:
-            if st.button("Upload Your Project", key="hero_upload", use_container_width=True):
-                st.session_state.selected_tab = "Upload"
-                st.rerun()
+            st.markdown("""
+            <a href="#" style="display: block; background: rgba(147, 51, 234, 0.2); color: #b8c5d6; padding: 18px 32px; border-radius: 12px; text-align: center; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; font-size: 15px; border: 2px solid rgba(147, 51, 234, 0.3); transition: all 0.3s;">
+                Upload Your Project
+            </a>
+            """, unsafe_allow_html=True)
 
     with col_right:
         # Display the concept image using PIL for better reliability
