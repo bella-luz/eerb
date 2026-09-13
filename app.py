@@ -903,15 +903,13 @@ def show_about():
 
     st.markdown("---")
 
-    # Call to Action
-    col1, col2, col3 = st.columns(3)
-    with col2:
-        st.markdown("""
-        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 12px;">
-            <h3 style="margin: 0 0 10px 0; color: #14c8c8; font-weight: 700;">Ready to Validate Your Project?</h3>
-            <p style="margin: 0; font-size: 14px; color: #cbd5e1;">Start with the demo or upload your own project.</p>
-        </div>
-        """, unsafe_allow_html=True)
+    # Call to Action - Centered
+    st.markdown("""
+    <div style="text-align: center; padding: 40px 30px; background: linear-gradient(135deg, rgba(20, 200, 200, 0.12) 0%, rgba(147, 51, 234, 0.08) 100%); border: 2px solid rgba(20, 200, 200, 0.25); border-radius: 16px; max-width: 800px; margin: 40px auto;">
+        <h2 style="margin: 0 0 16px 0; color: #ffffff; font-weight: 800; font-size: 32px;">Ready to Validate Your Project?</h2>
+        <p style="margin: 0; font-size: 16px; color: #b8c5d6; font-weight: 400;">Start with the demo or upload your own project.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 def show_demo_project():
