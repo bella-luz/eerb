@@ -59,9 +59,9 @@ st.markdown("""
 
     /* Modern Tab Styling - LARGE, CENTERED, Professional */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 28px;
-        background: rgba(10, 20, 40, 0.5);
-        padding: 32px 40px;
+        gap: 40px;
+        background: rgba(10, 20, 40, 0.6);
+        padding: 40px 40px;
         border-radius: 0px;
         border: none;
         backdrop-filter: blur(10px);
@@ -69,26 +69,28 @@ st.markdown("""
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin-bottom: 60px;
+        margin-bottom: 80px;
         position: sticky;
         top: 0;
         z-index: 100;
-        border-bottom: 1px solid rgba(20, 200, 200, 0.1);
+        border-bottom: 2px solid rgba(20, 200, 200, 0.2);
     }
 
     .stTabs [data-baseweb="tab-list"] button {
-        font-size: 15px;
-        font-weight: 600;
-        padding: 12px 32px;
-        border-radius: 8px;
-        border: 1px solid transparent;
-        background: rgba(20, 200, 200, 0.05);
+        font-size: 18px;
+        font-weight: 700;
+        padding: 16px 48px;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        background: rgba(20, 200, 200, 0.08);
         color: #a0aab8;
         transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         text-transform: uppercase;
-        letter-spacing: 1.2px;
+        letter-spacing: 1.4px;
         position: relative;
         overflow: hidden;
+        min-width: 160px;
+        text-align: center;
     }
 
     .stTabs [data-baseweb="tab-list"] button::before {
@@ -476,13 +478,18 @@ st.markdown("""
 
 def main():
     """Main application entry point - Professional Enterprise Interface."""
-    # Professional Logo and Header
+    # Professional Logo and Header - REDESIGNED
     st.markdown("""
-    <div style="text-align: center; margin-bottom: 60px; padding-top: 40px;">
-        <h1 style="margin: 0 0 12px 0; font-size: 64px; font-weight: 800; color: #ffffff; letter-spacing: -0.8px; text-align: center;">EERB</h1>
-        <p style="margin: 0 0 32px 0; color: #14c8c8; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; text-align: center;">Energy Engineering Review Board</p>
-        <div style="width: 80px; height: 3px; background: linear-gradient(90deg, transparent, #14c8c8, transparent); margin: 0 auto 32px auto;"></div>
-        <p style="margin: 0; color: #b8c5d6; font-size: 15px; font-weight: 400; letter-spacing: 0.4px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+    <div style="text-align: center; margin-bottom: 80px; padding-top: 40px;">
+        <!-- Main Title with Logo on side -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+            <div style="font-size: 56px; font-weight: 900; color: #14c8c8; letter-spacing: -1px; min-width: 80px; text-align: center;">E</div>
+            <h1 style="margin: 0; font-size: 72px; font-weight: 900; color: #ffffff; letter-spacing: -1.5px; text-align: left; flex: 1; min-width: 300px;">
+                Energy Engineering<br/>Review Board
+            </h1>
+        </div>
+        <div style="width: 120px; height: 3px; background: linear-gradient(90deg, transparent, #14c8c8, transparent); margin: 0 auto 32px auto;"></div>
+        <p style="margin: 0; color: #b8c5d6; font-size: 15px; font-weight: 400; letter-spacing: 0.4px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
             AI-Powered Preliminary Engineering Analysis for Renewable Energy Systems
         </p>
     </div>
@@ -542,16 +549,22 @@ def show_home():
                 st.rerun()
 
     with col_right:
-        # Display the SVG image using st.image (best way to render SVG in Streamlit)
+        # Display the hero image with professional styling
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%); border-radius: 16px; padding: 20px; border: 1px solid rgba(20, 200, 200, 0.3); overflow: hidden;">
+        """, unsafe_allow_html=True)
+
         try:
-            st.image("human_ai_collaboration.svg", use_column_width=True)
+            st.image("Hacathon info.jpeg", use_column_width=True)
         except:
-            # Fallback: display placeholder if SVG not found
-            st.markdown("""
-            <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%); border-radius: 16px; padding: 60px 20px; border: 1px solid rgba(20, 200, 200, 0.2); text-align: center; color: #14c8c8; font-size: 48px;">
-                ⚡
-            </div>
-            """, unsafe_allow_html=True)
+            try:
+                st.image("human_ai_collaboration.svg", use_column_width=True)
+            except:
+                st.markdown("""
+                <div style="text-align: center; color: #14c8c8; font-size: 64px; padding: 60px 20px;">⚡</div>
+                """, unsafe_allow_html=True)
+
+        st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("")
     st.markdown("---")
