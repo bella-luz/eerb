@@ -57,40 +57,44 @@ st.markdown("""
         margin: 0 auto;
     }
 
-    /* Modern Tab Styling - LARGE, CENTERED, Professional */
+    /* Modern Tab Styling - EXTRA LARGE, CENTERED, Professional */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 40px;
-        background: rgba(10, 20, 40, 0.6);
-        padding: 40px 40px;
+        gap: 50px;
+        background: rgba(10, 20, 40, 0.7);
+        padding: 50px 40px;
         border-radius: 0px;
         border: none;
         backdrop-filter: blur(10px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin-bottom: 80px;
+        margin-bottom: 100px;
         position: sticky;
         top: 0;
         z-index: 100;
-        border-bottom: 2px solid rgba(20, 200, 200, 0.2);
+        border-bottom: 3px solid rgba(20, 200, 200, 0.25);
     }
 
     .stTabs [data-baseweb="tab-list"] button {
-        font-size: 18px;
-        font-weight: 700;
-        padding: 16px 48px;
-        border-radius: 10px;
+        font-size: 22px;
+        font-weight: 800;
+        padding: 20px 60px;
+        border-radius: 12px;
         border: 2px solid transparent;
-        background: rgba(20, 200, 200, 0.08);
+        background: rgba(20, 200, 200, 0.1);
         color: #a0aab8;
         transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         text-transform: uppercase;
-        letter-spacing: 1.4px;
+        letter-spacing: 1.6px;
         position: relative;
         overflow: hidden;
-        min-width: 160px;
+        min-width: 200px;
         text-align: center;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .stTabs [data-baseweb="tab-list"] button::before {
@@ -478,18 +482,13 @@ st.markdown("""
 
 def main():
     """Main application entry point - Professional Enterprise Interface."""
-    # Professional Logo and Header - REDESIGNED
+    # Professional Header - Clean & Simple
     st.markdown("""
-    <div style="text-align: center; margin-bottom: 80px; padding-top: 40px;">
-        <!-- Main Title with Logo on side -->
-        <div style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
-            <div style="font-size: 56px; font-weight: 900; color: #14c8c8; letter-spacing: -1px; min-width: 80px; text-align: center;">E</div>
-            <h1 style="margin: 0; font-size: 72px; font-weight: 900; color: #ffffff; letter-spacing: -1.5px; text-align: left; flex: 1; min-width: 300px;">
-                Energy Engineering<br/>Review Board
-            </h1>
-        </div>
-        <div style="width: 120px; height: 3px; background: linear-gradient(90deg, transparent, #14c8c8, transparent); margin: 0 auto 32px auto;"></div>
-        <p style="margin: 0; color: #b8c5d6; font-size: 15px; font-weight: 400; letter-spacing: 0.4px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+    <div style="text-align: center; margin-bottom: 60px; padding: 40px 20px;">
+        <h1 style="margin: 0 0 12px 0; font-size: 64px; font-weight: 900; color: #ffffff; letter-spacing: -1px;">EERB</h1>
+        <p style="margin: 0 0 28px 0; color: #14c8c8; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;">Energy Engineering Review Board</p>
+        <div style="width: 100px; height: 3px; background: linear-gradient(90deg, transparent, #14c8c8, transparent); margin: 0 auto 28px auto;"></div>
+        <p style="margin: 0; color: #b8c5d6; font-size: 15px; font-weight: 400; max-width: 700px; margin-left: auto; margin-right: auto;">
             AI-Powered Preliminary Engineering Analysis for Renewable Energy Systems
         </p>
     </div>
@@ -527,14 +526,14 @@ def main():
 def show_home():
     """Display home page with website-like layout - Professional Enterprise."""
 
-    # IMPROVED HERO SECTION WITH IMAGE
-    col_left, col_right = st.columns([1, 1.2], gap="large")
+    # HERO SECTION - Balanced Layout
+    col_left, col_right = st.columns([1, 1.1], gap="large")
 
     with col_left:
         st.markdown("""
-        <div style="padding: 60px 20px;">
-            <h2 style="font-size: 52px; font-weight: 800; line-height: 1.15; margin: 0 0 24px 0; color: #ffffff; text-align: left;">AI Engineering Review Before You Build</h2>
-            <p style="font-size: 15px; line-height: 1.8; color: #b8c5d6; margin: 0 0 40px 0; text-align: left;">Preliminary technical validation for renewable energy projects in minutes, not weeks. Detect design conflicts automatically with our 6-agent AI system.</p>
+        <div style="padding: 40px 0;">
+            <h2 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin: 0 0 28px 0; color: #ffffff; text-align: left;">AI Engineering Review Before You Build</h2>
+            <p style="font-size: 16px; line-height: 1.8; color: #b8c5d6; margin: 0 0 40px 0; text-align: left;">Preliminary technical validation for renewable energy projects in minutes, not weeks. Detect design conflicts automatically with our 6-agent AI system.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -549,34 +548,15 @@ def show_home():
                 st.rerun()
 
     with col_right:
-        # Display the hero image with professional styling
+        # Display the concept image
         import os
-        app_dir = os.path.dirname(os.path.abspath(__file__))
+        image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "eerb-concept.jpg")
 
-        image_candidates = [
-            os.path.join(app_dir, "eerb-concept.jpg"),
-            os.path.join(app_dir, "EERB_Concept.jpg"),
-            "eerb-concept.jpg",
-            "Hacathon info.jpeg"
-        ]
-
-        image_found = False
-        for image_path in image_candidates:
-            if os.path.exists(image_path):
-                try:
-                    st.markdown("""
-                    <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.08) 0%, rgba(147, 51, 234, 0.08) 100%); border-radius: 16px; padding: 10px; border: 1px solid rgba(20, 200, 200, 0.25); overflow: hidden; box-shadow: 0 8px 32px rgba(20, 200, 200, 0.1);">
-                    """, unsafe_allow_html=True)
-                    st.image(image_path, use_column_width=True)
-                    st.markdown("</div>", unsafe_allow_html=True)
-                    image_found = True
-                    break
-                except Exception as e:
-                    continue
-
-        if not image_found:
+        if os.path.exists(image_path):
+            st.image(image_path, use_column_width=True, caption="Multi-Agent Engineering System")
+        else:
             st.markdown("""
-            <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%); border-radius: 16px; padding: 80px 20px; border: 1px solid rgba(20, 200, 200, 0.3); text-align: center; color: #14c8c8; font-size: 72px;">⚡</div>
+            <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%); border-radius: 16px; padding: 100px 20px; border: 2px solid rgba(20, 200, 200, 0.3); text-align: center; color: #14c8c8; font-size: 80px;">⚡</div>
             """, unsafe_allow_html=True)
 
     st.markdown("")
