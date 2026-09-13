@@ -21,13 +21,6 @@ EERB reviews your proposed energy projects using 6 specialized AI agents:
 ✅ **Traceable Analysis** – Source-referenced findings  
 ✅ **Preliminary Report** – Clear, actionable recommendations  
 
-### What It's NOT
-
-❌ Professional engineering certification  
-❌ Safety approval  
-❌ Regulatory compliance guarantee  
-❌ Replacement for detailed engineering studies  
-
 ---
 
 ## 🚀 Quick Start
@@ -236,15 +229,7 @@ It does NOT constitute:
 - Final engineering design or certification
 - Safety approval or testing
 - Regulatory compliance guarantee
-- Professional engineering sign-off
-- Grid approval or interconnection assessment
 
-**Always:**
-- Have results reviewed by licensed professional engineers
-- Conduct detailed site assessment
-- Verify all assumptions
-- Follow applicable standards and regulations
-- Perform necessary testing before implementation
 
 ---
 
