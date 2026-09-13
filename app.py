@@ -1258,19 +1258,28 @@ def display_dashboard_tab(load_kw, pv_kw, load_analysis, pv_analysis, bess_analy
     st.markdown("---")
     st.markdown("<h3 style='text-align: center;'>Overall Review Status</h3>", unsafe_allow_html=True)
 
-    # Determine status based on conflicts - SHOW CONFLICTS PROPERLY
-    st.markdown("""
-    <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(245, 158, 11, 0.08) 100%); border: 2px solid rgba(249, 115, 22, 0.3); border-radius: 12px; margin: 20px 0;">
-        <h3 style="margin: 0 0 16px 0; color: #f97316; text-transform: uppercase; letter-spacing: 1px;">⚠️ Design Conflict Identified</h3>
-        <p style="margin: 0; color: #fbbf24; font-size: 15px; line-height: 1.8; font-weight: 500;">
-            <strong>Battery Discharge Duration Insufficient for Peak Load Duration</strong><br/>
-            Peak Load Duration: 4.5 hours<br/>
-            Battery Duration: 2.0 hours<br/>
-            <strong>Gap: 2.5 hours of unmet demand</strong><br/><br/>
-            This design cannot achieve peak-shaving objective with current battery specification.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+    # Check for actual conflicts - DYNAMIC
+    peak_duration = load_analysis.get('peak_duration_hours', 0)
+    battery_duration = bess_analysis.get('battery_discharge_hours', bess_energy_kwh / bess_power_kw)
+
+    has_conflict = battery_duration < peak_duration
+    gap = peak_duration - battery_duration if has_conflict else 0
+
+    if has_conflict:
+        st.markdown(f"""
+        <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(245, 158, 11, 0.08) 100%); border: 2px solid rgba(249, 115, 22, 0.3); border-radius: 12px; margin: 20px 0;">
+            <h3 style="margin: 0 0 16px 0; color: #f97316; text-transform: uppercase; letter-spacing: 1px;">⚠️ Design Conflict Identified</h3>
+            <p style="margin: 0; color: #fbbf24; font-size: 15px; line-height: 1.8; font-weight: 500;">
+                <strong>Battery Discharge Duration Insufficient for Peak Load Duration</strong><br/>
+                Peak Load Duration: {peak_duration:.1f} hours<br/>
+                Battery Duration: {battery_duration:.1f} hours<br/>
+                <strong>Gap: {gap:.1f} hours of unmet demand</strong><br/><br/>
+                This design cannot achieve peak-shaving objective with current battery specification.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.success("✓ **No design conflicts detected.** Battery duration is sufficient for peak load.")
 
 
 def display_analysis_tab(load_analysis, pv_analysis, bess_analysis):
