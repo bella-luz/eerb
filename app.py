@@ -528,13 +528,13 @@ def show_home():
     """Display home page with website-like layout - Professional Enterprise."""
 
     # IMPROVED HERO SECTION WITH IMAGE
-    col_left, col_right = st.columns([1.2, 1], gap="large")
+    col_left, col_right = st.columns([1, 1.2], gap="large")
 
     with col_left:
         st.markdown("""
-        <div style="padding: 40px 0;">
-            <h2 style="font-size: 56px; font-weight: 800; line-height: 1.1; margin: 0 0 24px 0; color: #ffffff;">AI Engineering Review Before You Build</h2>
-            <p style="font-size: 16px; line-height: 1.8; color: #b8c5d6; margin: 0 0 40px 0;">Preliminary technical validation for renewable energy projects in minutes, not weeks. Detect design conflicts automatically with our 6-agent AI system.</p>
+        <div style="padding: 60px 20px;">
+            <h2 style="font-size: 52px; font-weight: 800; line-height: 1.15; margin: 0 0 24px 0; color: #ffffff; text-align: left;">AI Engineering Review Before You Build</h2>
+            <p style="font-size: 15px; line-height: 1.8; color: #b8c5d6; margin: 0 0 40px 0; text-align: left;">Preliminary technical validation for renewable energy projects in minutes, not weeks. Detect design conflicts automatically with our 6-agent AI system.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -550,18 +550,13 @@ def show_home():
 
     with col_right:
         # Display the hero image with professional styling
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.08) 0%, rgba(147, 51, 234, 0.08) 100%); border-radius: 16px; padding: 15px; border: 1px solid rgba(20, 200, 200, 0.25); overflow: hidden; box-shadow: 0 8px 32px rgba(20, 200, 200, 0.1);">
-        """, unsafe_allow_html=True)
-
-        # Try to load the concept image with proper path handling
         import os
         app_dir = os.path.dirname(os.path.abspath(__file__))
 
         image_candidates = [
-            os.path.join(app_dir, "EERB Cocept Image.jpg"),
-            os.path.join(app_dir, "EERB Concept Image.jpg"),
-            "EERB Cocept Image.jpg",
+            os.path.join(app_dir, "eerb-concept.jpg"),
+            os.path.join(app_dir, "EERB_Concept.jpg"),
+            "eerb-concept.jpg",
             "Hacathon info.jpeg"
         ]
 
@@ -569,18 +564,20 @@ def show_home():
         for image_path in image_candidates:
             if os.path.exists(image_path):
                 try:
+                    st.markdown("""
+                    <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.08) 0%, rgba(147, 51, 234, 0.08) 100%); border-radius: 16px; padding: 10px; border: 1px solid rgba(20, 200, 200, 0.25); overflow: hidden; box-shadow: 0 8px 32px rgba(20, 200, 200, 0.1);">
+                    """, unsafe_allow_html=True)
                     st.image(image_path, use_column_width=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
                     image_found = True
                     break
-                except:
+                except Exception as e:
                     continue
 
         if not image_found:
             st.markdown("""
-            <div style="text-align: center; color: #14c8c8; font-size: 64px; padding: 60px 20px;">⚡</div>
+            <div style="background: linear-gradient(135deg, rgba(20, 200, 200, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%); border-radius: 16px; padding: 80px 20px; border: 1px solid rgba(20, 200, 200, 0.3); text-align: center; color: #14c8c8; font-size: 72px;">⚡</div>
             """, unsafe_allow_html=True)
-
-        st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("")
     st.markdown("---")
