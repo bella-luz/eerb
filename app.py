@@ -490,11 +490,18 @@ st.markdown("""
 
 def main():
     """Main application entry point - Professional Enterprise Interface."""
-    # Branding header with full name
+    # Professional header - Full name at top, EERB logo on side
     st.markdown("""
-    <div style="text-align: center; padding: 24px 0 20px 0; border-bottom: 2px solid rgba(20, 200, 200, 0.15);">
-        <h1 style="margin: 0 0 8px 0; font-size: 56px; font-weight: 900; color: #ffffff; letter-spacing: -1px;">EERB</h1>
-        <p style="margin: 0; color: #14c8c8; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;">Energy Engineering Review Board</p>
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; padding: 30px 40px 30px 40px; border-bottom: 2px solid rgba(20, 200, 200, 0.15); gap: 40px;">
+        <div style="flex: 1;">
+            <h1 style="margin: 0; font-size: 64px; font-weight: 900; color: #ffffff; line-height: 1.1; letter-spacing: -1px;">
+                Energy Engineering<br/>Review Board
+            </h1>
+        </div>
+        <div style="text-align: center; min-width: 120px;">
+            <div style="font-size: 52px; font-weight: 900; color: #14c8c8; letter-spacing: -1px;">E</div>
+            <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #14c8c8; font-weight: 700; margin-top: 4px;">ERB</div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
